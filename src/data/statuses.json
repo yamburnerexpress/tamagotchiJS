@@ -1,0 +1,16 @@
+{
+  "statuses": [
+    {
+      "id": 1,
+      "name": "healthy",
+      "severity": 0,
+      "isSick": false
+    },
+    {
+      "id": 2,
+      "name": "barfy",
+      "severity": 1,
+      "isSick": true
+    }
+  ]
+}

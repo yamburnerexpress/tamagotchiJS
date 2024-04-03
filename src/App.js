@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import useTamagotchi, { TamagotchiProvider } from './app/StateContext.js';
+import { Status } from './components/Status.js';
+import { Health } from './components/Health.js';
+import { ActionButtons } from './components/ActionButtons.js';
+import TamagotchiReducer from './app/TamagotchiReducer.js';
 
-function App() {
+export default function App() {
+  const { name } = useTamagotchi();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TamagotchiProvider>
+      <div className="App">
+        <h1>{name}</h1>
+        <Status />
+        <Health />
+        <ActionButtons />
+      </div>
+    </TamagotchiProvider>
   );
 }
-
-export default App;

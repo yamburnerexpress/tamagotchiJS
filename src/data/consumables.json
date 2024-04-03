@@ -1,0 +1,26 @@
+{
+  "foods": [
+    {
+      "id": 1,
+      "name": "Ramen",
+      "description": "A piping hot bowl of tonkotsu ramen.",
+      "hp": 50,
+      "hunger": 50,
+      "status": {
+        "id": 1,
+        "name": "healthy"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Expired Eggs",
+      "description": "Eggs that have been in the fridge for several weeks. You bought them before you went on vacation to Xing.",
+      "hp": 0,
+      "hunger": 5,
+      "status": {
+        "id": 2,
+        "name": "barfy"
+      }
+    }
+  ]
+}
