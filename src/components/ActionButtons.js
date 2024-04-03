@@ -4,12 +4,21 @@ import { FoodButton } from "./FoodButton";
 import { GetStatusButton } from "./GetStatusButton";
 import { GiveFoodButton } from "./GiveFoodButton.js";
 import { GiveMedicineButton } from "./GiveMedicineButton.js";
+import { GiveEntertainButton } from "./GiveEntertainButton.js";
+import { DoSleepButton } from "./DoSleepButton.js";
+import { WakeUpButton } from "./WakeUpButton.js";
 import { allFoods } from '../util/getFood.js';
+import * as constants from '../util/Constants.js'
 
 export const ActionButtons = () => {
-    const { age, isFeed, status } = useTamagotchi();
-
-    if (isFeed) {
+    const { age, isFeed, status, tiredness, isAsleep } = useTamagotchi();
+    if (isAsleep) {
+        return (
+            <div id='actions'>
+                <WakeUpButton />
+            </div>
+        )
+    } else if (isFeed) {
         const foodButtons = allFoods.map(selectedFood => (
             <FoodButton key={selectedFood.id} food={selectedFood} />
         ))
@@ -24,6 +33,10 @@ export const ActionButtons = () => {
             <div id='actions'>
                 <GetStatusButton />
                 <GiveFoodButton />
+                <GiveEntertainButton action='pet' />
+                {tiredness > constants.TIREDNESS_THRESHOLD_1 &&
+                    <DoSleepButton />
+                }
                 {status.isSick && 
                     <GiveMedicineButton />
                 }
