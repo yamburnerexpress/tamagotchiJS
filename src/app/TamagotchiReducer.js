@@ -2,21 +2,21 @@ import getStatusById from '../util/getStatus';
 import * as constants from '../util/Constants';
 
 export const initialState = {
-    "name": "Roy",
-    "age": 0,
-    "timeSick": 0,
-    "tolerance": 0,
-    "hp": 100,
-    "hunger": 0,
-    "tiredness": 0,
-    "anger": 0,
-    "love": 0,
-    "status": getStatusById(1),
-    "isFeed": false,
-    "isMedicine": false,
-    "isAsleep": false,
-    "prevAction": "",
-    "messages": []
+    name: "Roy",
+    age: 0,
+    timeSick: 0,
+    tolerance: 0,
+    hp: 100,
+    hunger: 0,
+    tiredness: 0,
+    anger: 0,
+    love: 0,
+    status: getStatusById(1),
+    isFeed: false,
+    isMedicine: false,
+    isAsleep: false,
+    prevAction: "",
+    messages: []
 }
   
 const TamagotchiReducer = (state, action) => {
