@@ -5,9 +5,11 @@ export const GiveEntertainButton = (props) => {
     const { name, doPet } = useTamagotchi();
 
     switch (props.action) {
-      case ("pet"):
+      case "pet":
         return (
           <button onClick={() => doPet()}>Pet {name}</button>
         )
+      default:
+        return false;
     }
 }

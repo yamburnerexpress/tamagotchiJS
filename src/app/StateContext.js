@@ -102,7 +102,7 @@ export const TamagotchiProvider = ({ children }) => {
 
     const wakeUp = () => {
         incrementAge()
-        
+
         dispatch({
             type: "DO_WAKE",
             payload: {}
@@ -180,9 +180,30 @@ export const TamagotchiProvider = ({ children }) => {
         })
     }
 
+    const setTick = () => {
+        dispatch({type: "SET_TICK", payload: {}})
+    }
+
+    const removeTick = () => {
+        dispatch({type: "REMOVE_TICK", payload: {}})
+    }
+
+    const setEvent = () => {
+        dispatch({type: "SET_EVENT", payload: {}})
+        dispatch({type: "REMOVE_TICK", payload: {}})
+        dispatch({type: "REMOVE_IS_BORED", payload: {}})
+    }
+
+    const setIsBored = () => {
+        dispatch({type: "SET_IS_BORED", payload: {}})
+    }
+
     const value = {
         name: state.name,
         age: state.age,
+        tick: state.tick,
+        event: state.event,
+        isBored: state.isBored,
         tolerance: state.tolerance,
         hp: state.hp,
         hunger: state.hunger,
@@ -202,7 +223,11 @@ export const TamagotchiProvider = ({ children }) => {
         wakeUp,
         getStatusMessages,
         setIsFeed,
-        setIsMedicine
+        setIsMedicine,
+        setTick,
+        removeTick,
+        setEvent,
+        setIsBored
     }
 
     return ( 
