@@ -4,13 +4,18 @@
       "id": 1,
       "name": "healthy",
       "severity": 0,
-      "isSick": false
+      "isSick": false,
+      "effect": {}
     },
     {
       "id": 2,
       "name": "barfy",
       "severity": 1,
-      "isSick": true
+      "isSick": true,
+      "effect": {
+        "hp": 10,
+        "tiredness": 10
+      }
     }
   ]
 }

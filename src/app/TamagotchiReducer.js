@@ -4,6 +4,7 @@ import * as constants from '../util/Constants';
 export const initialState = {
     "name": "Roy",
     "age": 0,
+    "timeSick": 0,
     "tolerance": 0,
     "hp": 100,
     "hunger": 0,
@@ -21,10 +22,6 @@ export const initialState = {
 const TamagotchiReducer = (state, action) => {
     const { type, payload } = action;
 
-    const incrementAge = () => {
-        return state.age + 1;
-    }
-
     const incrementTolerance = (action) => {
         console.log(state.tolerance);
         if (state.prevAction === action) {
@@ -40,7 +37,6 @@ const TamagotchiReducer = (state, action) => {
   
             return {
                 ...state,
-                age: incrementAge(),
                 hp: payload.hp,
                 tolerance: incrementTolerance(type),
                 hunger: payload.hunger,
@@ -55,7 +51,7 @@ const TamagotchiReducer = (state, action) => {
 
             return {
                 ...state,
-                age: incrementAge(),
+                timeSick: 0,
                 hp: payload.hp,
                 status: payload.status,
                 isFeed: false,
@@ -63,12 +59,11 @@ const TamagotchiReducer = (state, action) => {
                 messages: payload.messages
             }
         }
-        case 'GIVE_ENTERTAIN': {
-            console.log("GIVE_ENTERTAIN", payload)
+        case 'DO_PET': {
+            console.log("DO_PET", payload)
 
             return {
                 ...state,
-                age: incrementAge(),
                 tolerance: incrementTolerance(type),
                 tiredness: payload.tiredness,
                 love: payload.love,
@@ -81,7 +76,6 @@ const TamagotchiReducer = (state, action) => {
 
             return {
                 ...state,
-                age: incrementAge(),
                 tiredness: payload.tiredness,
                 tolerance: payload.tolerance,
                 isAsleep: true,
@@ -114,6 +108,23 @@ const TamagotchiReducer = (state, action) => {
             return {
                 ...state,
                 isMedicine: payload.isMedicine
+            }
+        }
+        case 'INCREMENT_AGE': {
+            console.log("INCREMENT_AGE", state.isSick)
+            if (state.status.isSick) {
+                return {
+                    ...state,
+                    age: state.age + 1,
+                    timeSick: state.timeSick + 1,
+                    hp: Math.max(state.hp - state.status.effect.hp, 0),
+                    tiredness: Math.min(state.tiredness + state.status.effect.tiredness, constants.MAX_TIREDNESS)
+                } 
+            } else {
+                return {
+                    ...state,
+                    age: state.age + 1
+                }
             }
         }
         default:

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useTamagotchi from "../app/StateContext";
 import { FoodButton } from "./FoodButton";
 import { GetStatusButton } from "./GetStatusButton";
@@ -11,7 +11,7 @@ import { allFoods } from '../util/getFood.js';
 import * as constants from '../util/Constants.js'
 
 export const ActionButtons = () => {
-    const { age, isFeed, status, tiredness, isAsleep } = useTamagotchi();
+    const { isFeed, status, tiredness, isAsleep } = useTamagotchi();
     if (isAsleep) {
         return (
             <div id='actions'>

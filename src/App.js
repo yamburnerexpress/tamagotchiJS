@@ -4,7 +4,6 @@ import useTamagotchi, { TamagotchiProvider } from './app/StateContext.js';
 import { Status } from './components/Status.js';
 import { Health } from './components/Health.js';
 import { ActionButtons } from './components/ActionButtons.js';
-import TamagotchiReducer from './app/TamagotchiReducer.js';
 
 export default function App() {
   const { name } = useTamagotchi();

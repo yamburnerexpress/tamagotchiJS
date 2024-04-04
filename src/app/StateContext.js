@@ -16,6 +16,10 @@ export const TamagotchiProvider = ({ children }) => {
         }
     }
 
+    const incrementAge = () => {
+        dispatch({type: "INCREMENT_AGE", payload: {}})
+    }
+
     const giveFood = (food) => {
         const messages = [`${state.name} ate some ${food.name}!`]
   
@@ -29,6 +33,8 @@ export const TamagotchiProvider = ({ children }) => {
             }
         }
 
+        incrementAge()
+
         dispatch({
             type: "GIVE_FOOD",
             payload: {
@@ -41,6 +47,8 @@ export const TamagotchiProvider = ({ children }) => {
     }
 
     const giveMedicine = () => {
+        incrementAge()
+
         dispatch({
             type: "GIVE_MEDICINE",
             payload: {
@@ -52,7 +60,7 @@ export const TamagotchiProvider = ({ children }) => {
         })
     }
 
-    const givePet = () => {
+    const doPet = () => {
         const [isTired, tiredMessage] = getTiredMessage();
         const [isLove, loveMessage] = getLoveMessage();
         const isAnnoyed = getIsAnnoyed()
@@ -66,8 +74,10 @@ export const TamagotchiProvider = ({ children }) => {
         if (state.tiredness === constants.MAX_TIREDNESS) {
             doSleep()
         } else {
+            incrementAge()
+
             dispatch({
-                type: "GIVE_ENTERTAIN",
+                type: "DO_PET",
                 payload: {
                     tiredness: Math.min(state.tiredness + 10, constants.MAX_TIREDNESS),
                     love: (isAnnoyed ? Math.max(state.love - 5, 0) : Math.min(state.love + 5, constants.MAX_LOVE)),
@@ -78,6 +88,8 @@ export const TamagotchiProvider = ({ children }) => {
     }
 
     const doSleep = () => {
+        incrementAge()
+
         dispatch({
             type: "DO_SLEEP",
             payload: {
@@ -89,6 +101,8 @@ export const TamagotchiProvider = ({ children }) => {
     }
 
     const wakeUp = () => {
+        incrementAge()
+        
         dispatch({
             type: "DO_WAKE",
             payload: {}
@@ -183,7 +197,7 @@ export const TamagotchiProvider = ({ children }) => {
         messages: state.messages,
         giveFood,
         giveMedicine,
-        givePet,
+        doPet,
         doSleep,
         wakeUp,
         getStatusMessages,
