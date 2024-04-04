@@ -4,6 +4,12 @@ import * as constants from '../util/Constants';
 export const initialState = {
     name: "Roy",
     age: 0,
+    tick: 0,
+    event: {
+        isEvent: false,
+        eventId: 0
+    },
+    isBored: false,
     timeSick: 0,
     tolerance: 0,
     hp: 100,
@@ -15,7 +21,10 @@ export const initialState = {
     isFeed: false,
     isMedicine: false,
     isAsleep: false,
-    prevAction: "",
+    prevAction: {
+        type: "",
+        time: Date.now()
+    },
     messages: []
 }
   
@@ -24,12 +33,14 @@ const TamagotchiReducer = (state, action) => {
 
     const incrementTolerance = (action) => {
         console.log(state.tolerance);
-        if (state.prevAction === action) {
+        if (state.prevAction.type === action) {
             return Math.min(state.tolerance + 20, constants.MAX_TOLERANCE);
         } else {
             return 0;
         }
     }
+
+    const setPrevAction = (type) => ({type: type, time: Date.now()})
   
     switch (type) {
         case 'GIVE_FOOD': {
@@ -42,7 +53,7 @@ const TamagotchiReducer = (state, action) => {
                 hunger: payload.hunger,
                 status: payload.status,
                 isFeed: false,
-                prevAction: type,
+                prevAction: setPrevAction(type),
                 messages: payload.messages
             };  
         }
@@ -55,7 +66,7 @@ const TamagotchiReducer = (state, action) => {
                 hp: payload.hp,
                 status: payload.status,
                 isFeed: false,
-                prevAction: type,
+                prevAction: setPrevAction(type),
                 messages: payload.messages
             }
         }
@@ -67,7 +78,7 @@ const TamagotchiReducer = (state, action) => {
                 tolerance: incrementTolerance(type),
                 tiredness: payload.tiredness,
                 love: payload.love,
-                prevAction: type,
+                prevAction: setPrevAction(type),
                 messages: payload.messages
             }
         }
@@ -111,7 +122,7 @@ const TamagotchiReducer = (state, action) => {
             }
         }
         case 'INCREMENT_AGE': {
-            console.log("INCREMENT_AGE", state.isSick)
+            console.log("INCREMENT_AGE", state.status.isSick)
             if (state.status.isSick) {
                 return {
                     ...state,
@@ -125,6 +136,48 @@ const TamagotchiReducer = (state, action) => {
                     ...state,
                     age: state.age + 1
                 }
+            }
+        }
+        case 'SET_TICK': {
+            return {
+                ...state,
+                tick: state.tick + 1
+            }
+        }
+        case 'REMOVE_TICK': {
+            return {
+                ...state,
+                tick: 0
+            }
+        }
+        case 'SET_EVENT': {
+            return {
+                ...state,
+                event: {
+                    isEvent: true,
+                    eventId: 1
+                }
+            }
+        }
+        case 'REMOVE_EVENT': {
+            return {
+                ...state,
+                event: {
+                    isEvent: false,
+                    eventId: 0
+                }
+            }
+        }
+        case 'SET_IS_BORED': {
+            return {
+                ...state,
+                isBored: true
+            }
+        }
+        case 'REMOVE_IS_BORED': {
+            return {
+                ...state,
+                isBored: false
             }
         }
         default:
