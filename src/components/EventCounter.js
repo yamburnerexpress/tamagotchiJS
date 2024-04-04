@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import useTamagotchi from "../app/StateContext";
 
 export const EventCounter = () => {
-    const { event, tick, setTick, removeTick, setEvent, isBored, setIsBored, prevAction } = useTamagotchi();
+    const { event, tick, setTick, setEvent, prevAction } = useTamagotchi();
 
     console.log(prevAction)
   
