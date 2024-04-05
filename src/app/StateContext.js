@@ -290,4 +290,4 @@ const useTamagotchi = () => {
     return context
 }
 
-export default useTamagotchi
+export default useTamagotchi;

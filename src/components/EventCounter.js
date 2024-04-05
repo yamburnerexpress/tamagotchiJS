@@ -15,7 +15,7 @@ export const EventCounter = () => {
     }, 1000)
 
     useEffect(() => {
-        if (Math.random() * tick > 20) {
+        if (Math.random() * tick > 5) {
             return goPlay()
         }
     }, [goPlay, tick])

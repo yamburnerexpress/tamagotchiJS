@@ -1,5 +1,5 @@
 import React from "react";
-import '../css/ActionButton.css'
+import '../css/ActionButton.css';
 
 export const ActionButton = (props) => {
     const handleClick = () => {
