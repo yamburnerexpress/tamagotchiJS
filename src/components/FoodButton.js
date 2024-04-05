@@ -1,14 +1,16 @@
 import React from "react";
 import useTamagotchi from "../app/StateContext";
+import { ActionButton } from "./ActionButton";
 
 export const FoodButton = (props) => {
     const { giveFood } = useTamagotchi();
   
     const handleClick = (food) => {
+      props.action(false)
       giveFood(food)
     }
   
     return (
-      <button key={props.food.id} onClick={() => handleClick(props.food)}>Feed {props.food.name}</button>
+      <ActionButton action={() => handleClick(props.food)} label={`Feed ${props.food.name}`}/>
     )
 }

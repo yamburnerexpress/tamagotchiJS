@@ -3,7 +3,7 @@ import './App.css';
 import useTamagotchi, { TamagotchiProvider } from './app/StateContext.js';
 import { Status } from './components/Status.js';
 import { Health } from './components/Health.js';
-import { ActionButtons } from './components/ActionButtons.js';
+import { ActionButtonGroup } from './components/ActionButtonGroup.js';
 import { EventCounter } from './components/EventCounter.js';
 
 export default function App() {
@@ -16,7 +16,7 @@ export default function App() {
         <EventCounter />
         <Status />
         <Health />
-        <ActionButtons />
+        <ActionButtonGroup />
       </div>
     </TamagotchiProvider>
   );

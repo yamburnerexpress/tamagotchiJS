@@ -10,6 +10,7 @@ export const initialState = {
         eventId: 0
     },
     isBored: false,
+    isHere: true,
     timeSick: 0,
     tolerance: 0,
     hp: 100,
@@ -18,18 +19,18 @@ export const initialState = {
     anger: 0,
     love: 0,
     status: getStatusById(1),
-    isFeed: false,
     isMedicine: false,
     isAsleep: false,
     prevAction: {
         type: "",
         time: Date.now()
     },
+    inventory: [],
     messages: []
 }
   
 const TamagotchiReducer = (state, action) => {
-    const { type, payload } = action;
+    const { type, payload={} } = action;
 
     const incrementTolerance = (action) => {
         console.log(state.tolerance);
@@ -49,10 +50,10 @@ const TamagotchiReducer = (state, action) => {
             return {
                 ...state,
                 hp: payload.hp,
+                isBored: false,
                 tolerance: incrementTolerance(type),
                 hunger: payload.hunger,
                 status: payload.status,
-                isFeed: false,
                 prevAction: setPrevAction(type),
                 messages: payload.messages
             };  
@@ -64,8 +65,8 @@ const TamagotchiReducer = (state, action) => {
                 ...state,
                 timeSick: 0,
                 hp: payload.hp,
+                isBored: false,
                 status: payload.status,
-                isFeed: false,
                 prevAction: setPrevAction(type),
                 messages: payload.messages
             }
@@ -75,6 +76,7 @@ const TamagotchiReducer = (state, action) => {
 
             return {
                 ...state,
+                isBored: false,
                 tolerance: incrementTolerance(type),
                 tiredness: payload.tiredness,
                 love: payload.love,
@@ -87,6 +89,8 @@ const TamagotchiReducer = (state, action) => {
 
             return {
                 ...state,
+                hp: constants.MAX_HP,
+                isBored: false,
                 tiredness: payload.tiredness,
                 tolerance: payload.tolerance,
                 isAsleep: true,
@@ -101,7 +105,6 @@ const TamagotchiReducer = (state, action) => {
             }
         }
         case 'GET_STATUS': {
-            console.log("GET_STATUS", payload)
             console.log(state);
 
             return {
@@ -109,10 +112,24 @@ const TamagotchiReducer = (state, action) => {
                 messages: payload.messages
             }
         }
-        case 'SET_IS_FEED': {
+        case 'GET_TOY': {
+            console.log("GET_TOY", payload)
+
+            const newInv = Array.from(state.inventory ?? []);
+            newInv.push(payload.inventory);
+            
             return {
                 ...state,
-                isFeed: payload.isFeed
+                inventory: newInv
+            }
+        }
+        case 'DO_PLAY_WITH_TOY': {
+            return {
+                ...state,
+                isBored: false,
+                tiredness: 0,
+                love: state.love + 5,
+                messages: payload.messages,
             }
         }
         case 'SET_IS_MEDICINE': {
@@ -153,6 +170,7 @@ const TamagotchiReducer = (state, action) => {
         case 'SET_EVENT': {
             return {
                 ...state,
+                prevAction: setPrevAction("SET_EVENT"),
                 event: {
                     isEvent: true,
                     eventId: 1
@@ -171,13 +189,30 @@ const TamagotchiReducer = (state, action) => {
         case 'SET_IS_BORED': {
             return {
                 ...state,
-                isBored: true
+                isBored: true,
+                messages: payload.messages
             }
         }
         case 'REMOVE_IS_BORED': {
             return {
                 ...state,
                 isBored: false
+            }
+        }
+        case 'SET_IS_AWAY': {
+            return {
+                ...state,
+                isHere: false,
+                prevAction: setPrevAction(type),
+                messages: payload.messages
+            }
+        }
+        case 'SET_IS_HERE': {
+            return {
+                ...state,
+                isHere: true,
+                prevAction: setPrevAction(type),
+                messages: payload.messages
             }
         }
         default:

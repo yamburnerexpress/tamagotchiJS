@@ -16,10 +16,6 @@ export const TamagotchiProvider = ({ children }) => {
         }
     }
 
-    const incrementAge = () => {
-        dispatch({type: "INCREMENT_AGE", payload: {}})
-    }
-
     const giveFood = (food) => {
         const messages = [`${state.name} ate some ${food.name}!`]
   
@@ -33,7 +29,7 @@ export const TamagotchiProvider = ({ children }) => {
             }
         }
 
-        incrementAge()
+        dispatch({type: "INCREMENT_AGE"})
 
         dispatch({
             type: "GIVE_FOOD",
@@ -47,14 +43,13 @@ export const TamagotchiProvider = ({ children }) => {
     }
 
     const giveMedicine = () => {
-        incrementAge()
+        dispatch({type: "INCREMENT_AGE"})
 
         dispatch({
             type: "GIVE_MEDICINE",
             payload: {
                 hp: Math.min(state.hp + 50, constants.MAX_HP),
                 status: getStatusById(1),
-                isFeed: false,
                 messages: [`${state.name} is feeling all better!`]
             }
         })
@@ -74,7 +69,7 @@ export const TamagotchiProvider = ({ children }) => {
         if (state.tiredness === constants.MAX_TIREDNESS) {
             doSleep()
         } else {
-            incrementAge()
+            dispatch({type: "INCREMENT_AGE"})
 
             dispatch({
                 type: "DO_PET",
@@ -88,7 +83,7 @@ export const TamagotchiProvider = ({ children }) => {
     }
 
     const doSleep = () => {
-        incrementAge()
+        dispatch({type: "INCREMENT_AGE"})
 
         dispatch({
             type: "DO_SLEEP",
@@ -101,7 +96,7 @@ export const TamagotchiProvider = ({ children }) => {
     }
 
     const wakeUp = () => {
-        incrementAge()
+        dispatch({type: "INCREMENT_AGE"})
 
         dispatch({
             type: "DO_WAKE",
@@ -162,15 +157,6 @@ export const TamagotchiProvider = ({ children }) => {
         })
     }
 
-    const setIsFeed = () => {
-        dispatch({
-            type: "SET_IS_FEED",
-            payload: {
-                isFeed: true
-            }
-        })
-    }
-
     const setIsMedicine = () => {
         dispatch({
             type: "SET_IS_MEDICINE",
@@ -181,21 +167,74 @@ export const TamagotchiProvider = ({ children }) => {
     }
 
     const setTick = () => {
-        dispatch({type: "SET_TICK", payload: {}})
+        dispatch({type: "SET_TICK"})
     }
 
     const removeTick = () => {
-        dispatch({type: "REMOVE_TICK", payload: {}})
+        dispatch({type: "REMOVE_TICK"})
     }
 
     const setEvent = () => {
-        dispatch({type: "SET_EVENT", payload: {}})
-        dispatch({type: "REMOVE_TICK", payload: {}})
-        dispatch({type: "REMOVE_IS_BORED", payload: {}})
+        dispatch({type: "SET_EVENT"})
+        dispatch({type: "REMOVE_TICK"})
+        dispatch({type: "REMOVE_IS_BORED"})
     }
 
     const setIsBored = () => {
-        dispatch({type: "SET_IS_BORED", payload: {}})
+        dispatch({
+            type: "SET_IS_BORED", 
+            payload: {
+                messages: [`${state.name} is bored!`]
+            }
+        })
+    }
+
+    const goPlay = () => {
+        dispatch({type: "INCREMENT_AGE"})
+        dispatch({type: "REMOVE_TICK"})
+        dispatch({type: "REMOVE_IS_BORED"})
+        dispatch({
+            type: "SET_IS_AWAY", 
+            payload: {
+                messages: [`${state.name} went off to play on his own!`]
+            }
+        })
+    }
+
+    const jingleKeys = () => {
+        const messages = [`${state.name} heard your keys jingling and came back!`];
+
+        if (Math.random() * 10 >= 3) {
+            const toy = {
+                name: "Gun",
+                action: "Throw"
+            }
+            if (!state.inventory.some(item => item.name === toy.name)) {
+                const article = (['a','e','i','o','u'].some(ltr => toy.name.toLocaleLowerCase().startsWith(ltr))) ? 'an' : 'a';
+                messages.push(`${state.name} brought back ${article} ${toy.name}`)
+                dispatch({
+                    type: "GET_TOY",
+                    payload: {
+                        inventory: toy
+                    }
+                })
+            }
+        }
+        dispatch({
+            type: "SET_IS_HERE",
+            payload: {
+                messages: messages
+            }
+        })
+    }
+
+    const playWithToy = (name) => {
+        dispatch({
+            type: "DO_PLAY_WITH_TOY",
+            payload: {
+                messages: [`${state.name} brought the ${name} back!`]
+            }
+        })
     }
 
     const value = {
@@ -204,6 +243,7 @@ export const TamagotchiProvider = ({ children }) => {
         tick: state.tick,
         event: state.event,
         isBored: state.isBored,
+        isHere: state.isHere,
         tolerance: state.tolerance,
         hp: state.hp,
         hunger: state.hunger,
@@ -211,10 +251,10 @@ export const TamagotchiProvider = ({ children }) => {
         anger: state.anger,
         love: state.love,
         status: state.status,
-        isFeed: state.isFeed,
         isMedicine: state.isMedicine,
         isAsleep: state.isAsleep,
         prevAction: state.prevAction,
+        inventory: state.inventory,
         messages: state.messages,
         giveFood,
         giveMedicine,
@@ -222,12 +262,15 @@ export const TamagotchiProvider = ({ children }) => {
         doSleep,
         wakeUp,
         getStatusMessages,
-        setIsFeed,
         setIsMedicine,
         setTick,
         removeTick,
         setEvent,
-        setIsBored
+        setIsBored,
+        goPlay,
+        jingleKeys,
+        // bringBackToy,
+        playWithToy
     }
 
     return ( 
