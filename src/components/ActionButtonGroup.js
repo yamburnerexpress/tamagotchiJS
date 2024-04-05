@@ -4,6 +4,7 @@ import { ActionButton } from "./ActionButton.js";
 import { FoodButton } from "./FoodButton.js";
 import { allFoods } from '../util/getFood.js';
 import * as constants from '../util/Constants.js'
+import "../css/ActionButton.css"
 
 export const ActionButtonGroup = () => {
     const { 
@@ -29,13 +30,13 @@ export const ActionButtonGroup = () => {
             jingleKeys()
         }
         return (
-            <div id='actions'>
+            <div className='actions'>
                 <ActionButton action={() => handleClick()} label='Jingle Keys' />
             </div>
         )
     } else if (isAsleep) {
         return (
-            <div id='actions'>
+            <div className='actions'>
                 <ActionButton action={() => wakeUp()} label={`Wake ${name} Up`}/>
             </div>
         )
@@ -45,7 +46,7 @@ export const ActionButtonGroup = () => {
         ))
     
         return (
-            <div id='actions'>
+            <div className='actions'>
                 {foodButtons}
             </div>
         )
@@ -63,6 +64,6 @@ export const ActionButtonGroup = () => {
             ...toyButtons
         ]
 
-        return buttons;
+        return <div className='actions'>{buttons}</div>;
     }
 }
