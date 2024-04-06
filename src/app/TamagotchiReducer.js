@@ -33,7 +33,6 @@ const TamagotchiReducer = (state, action) => {
     const { type, payload={} } = action;
 
     const incrementTolerance = (action) => {
-        console.log(state.tolerance);
         if (state.prevAction.type === action) {
             return Math.min(state.tolerance + 20, constants.MAX_TOLERANCE);
         } else {
@@ -94,6 +93,7 @@ const TamagotchiReducer = (state, action) => {
                 tiredness: payload.tiredness,
                 tolerance: payload.tolerance,
                 isAsleep: true,
+                prevAction: setPrevAction(type),
                 messages: payload.messages
             }
         }
@@ -101,12 +101,20 @@ const TamagotchiReducer = (state, action) => {
             return {
                 ...state,
                 isAsleep: false,
+                prevAction: setPrevAction(type),
                 messages: []
             }
         }
         case 'GET_STATUS': {
             console.log(state);
 
+            return {
+                ...state,
+                prevAction: setPrevAction(type),
+                messages: payload.messages
+            }
+        }
+        case 'PUT_STATUS': {
             return {
                 ...state,
                 messages: payload.messages
@@ -129,17 +137,18 @@ const TamagotchiReducer = (state, action) => {
                 isBored: false,
                 tiredness: 0,
                 love: state.love + 5,
+                prevAction: setPrevAction(type),
                 messages: payload.messages,
             }
         }
         case 'SET_IS_MEDICINE': {
             return {
                 ...state,
+                prevAction: setPrevAction(type),
                 isMedicine: payload.isMedicine
             }
         }
         case 'INCREMENT_AGE': {
-            console.log("INCREMENT_AGE", state.status.isSick)
             if (state.status.isSick) {
                 return {
                     ...state,

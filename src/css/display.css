@@ -9,13 +9,21 @@
 
 .topPanel {
     display: grid;
-    grid-template-columns: 70px 1fr;
+    grid-template-columns: 50px 1fr;
     height: 80%;
 }
 
-.statusIcons {
-    border: 1px solid blue;
+.statusIconGroup {
+    /* border: 1px solid blue; */
+    padding-left: 10px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
 }
+
+/* .statusIcon {
+    width: 100%
+} */
 
 .messageContainer {
     position: absolute;
