@@ -18,7 +18,9 @@
     box-shadow: 0 2px 4px darkslategray;
 }
 
-.actionButton:hover {
-    color: white;
-    background-color:rgb(102, 88, 164);
+@media(hover: hover) and (pointer: fine) {
+    .actionButton:hover {
+        color: white;
+        background-color:rgb(102, 88, 164);
+    }
 }

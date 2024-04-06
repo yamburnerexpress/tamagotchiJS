@@ -5,6 +5,8 @@ export const Icon = (props) => {
     const icon = () => {
         const label = `${props.title} Indicator`;
 
+        // color guide: https://www.w3.org/TR/css-color-3/
+
         switch (props.status) {
             case "full_battery": {
                 // <Icon icon="akar-icons:battery-full" />
@@ -12,15 +14,15 @@ export const Icon = (props) => {
             }
             case "med_battery": {
                 // <Icon icon="akar-icons:battery-medium" />
-                return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><rect width="18" height="12" x="2" y="6" rx="2"/><path d="M20 10h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H20zM7 10v4m4-4v4"/></g></svg>
+                return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><g fill="none" stroke="orangered" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><rect width="18" height="12" x="2" y="6" rx="2"/><path d="M20 10h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H20zM7 10v4m4-4v4"/></g></svg>
             }
             case "low_battery": {
                 // <Icon icon="akar-icons:battery-low" />
-                return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><rect width="18" height="12" x="2" y="6" rx="2"/><path d="M7 10v4m13-4h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H20z"/></g></svg>
+                return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><g fill="none" stroke="firebrick" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><rect width="18" height="12" x="2" y="6" rx="2"/><path d="M7 10v4m13-4h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H20z"/></g></svg>
             }
             case "charging_battery": {
                 // <Icon icon="akar-icons:battery-charging" />
-                return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><rect width="18" height="12" x="2" y="6" rx="2"/><path d="M20 10h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H20zm-8.6-1L9 12h4l-2.4 3"/></g></svg>
+                return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><g fill="none" stroke="seagreen" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><rect width="18" height="12" x="2" y="6" rx="2"/><path d="M20 10h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H20zm-8.6-1L9 12h4l-2.4 3"/></g></svg>
             }
             case "sick": {
                 // MaterialSymbolsSickOutline
