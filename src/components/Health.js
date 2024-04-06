@@ -6,8 +6,9 @@ export const Health = () => {
   
     return (
       <div id='logGroup'>
-        <h2>{name} Health: {hp}</h2>
-        <h3>Age: {age}</h3>
+        <span>{name} Health: {hp}</span>
+        <br></br>
+        <span>Age: {age}</span>
       </div>
     )
 }

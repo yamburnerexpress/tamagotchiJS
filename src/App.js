@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { TamagotchiProvider } from './app/StateContext.js';
-import { Status } from './components/Status.js';
+// import { Status } from './components/Status.js';
 import { Health } from './components/Health.js';
 import { ActionButtonGroup } from './components/ActionButtonGroup.js';
 import { EventCounter } from './components/EventCounter.js';
@@ -11,12 +11,13 @@ export default function App() {
 
   return (
     <TamagotchiProvider>
-      <div className="App">
-        <EventCounter />
+      <EventCounter />
+      <Health />
+      <div className="App" role="main">
         <SpriteContainer />
-        <Status />
-        <Health />
-        <ActionButtonGroup />
+        <div className="bottomPanel">
+          <ActionButtonGroup />
+        </div>
       </div>
     </TamagotchiProvider>
   );
