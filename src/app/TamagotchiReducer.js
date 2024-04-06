@@ -23,7 +23,8 @@ export const initialState = {
     isAsleep: false,
     prevAction: {
         type: "",
-        time: Date.now()
+        time: Date.now(),
+        payload: {}
     },
     inventory: [],
     messages: []
@@ -32,15 +33,15 @@ export const initialState = {
 const TamagotchiReducer = (state, action) => {
     const { type, payload={} } = action;
 
-    const incrementTolerance = (action) => {
-        if (state.prevAction.type === action) {
+    const incrementTolerance = () => {
+        if (state.prevAction.type === type) {
             return Math.min(state.tolerance + 20, constants.MAX_TOLERANCE);
         } else {
             return 0;
         }
     }
 
-    const setPrevAction = (type) => ({type: type, time: Date.now()})
+    const setPrevAction = () => ({type: type, time: Date.now(), payload: payload})
   
     switch (type) {
         case 'GIVE_FOOD': {
@@ -50,10 +51,10 @@ const TamagotchiReducer = (state, action) => {
                 ...state,
                 hp: payload.hp,
                 isBored: false,
-                tolerance: incrementTolerance(type),
+                tolerance: incrementTolerance(),
                 hunger: payload.hunger,
                 status: payload.status,
-                prevAction: setPrevAction(type),
+                prevAction: setPrevAction(),
                 messages: payload.messages
             };  
         }
@@ -66,7 +67,7 @@ const TamagotchiReducer = (state, action) => {
                 hp: payload.hp,
                 isBored: false,
                 status: payload.status,
-                prevAction: setPrevAction(type),
+                prevAction: setPrevAction(),
                 messages: payload.messages
             }
         }
@@ -76,11 +77,10 @@ const TamagotchiReducer = (state, action) => {
             return {
                 ...state,
                 isBored: false,
-                tolerance: incrementTolerance(type),
+                tolerance: incrementTolerance(),
                 tiredness: payload.tiredness,
                 love: payload.love,
-                prevAction: setPrevAction(type),
-                messages: payload.messages
+                prevAction: setPrevAction()
             }
         }
         case 'DO_SLEEP': {
@@ -93,7 +93,7 @@ const TamagotchiReducer = (state, action) => {
                 tiredness: payload.tiredness,
                 tolerance: payload.tolerance,
                 isAsleep: true,
-                prevAction: setPrevAction(type),
+                prevAction: setPrevAction(),
                 messages: payload.messages
             }
         }
@@ -101,7 +101,7 @@ const TamagotchiReducer = (state, action) => {
             return {
                 ...state,
                 isAsleep: false,
-                prevAction: setPrevAction(type),
+                prevAction: setPrevAction(),
                 messages: []
             }
         }
@@ -110,7 +110,7 @@ const TamagotchiReducer = (state, action) => {
 
             return {
                 ...state,
-                prevAction: setPrevAction(type),
+                prevAction: setPrevAction(),
                 messages: payload.messages
             }
         }
@@ -135,16 +135,17 @@ const TamagotchiReducer = (state, action) => {
             return {
                 ...state,
                 isBored: false,
-                tiredness: 0,
-                love: state.love + 5,
-                prevAction: setPrevAction(type),
-                messages: payload.messages,
+                tolerance: incrementTolerance(),
+                tiredness: payload.tiredness,
+                love: payload.love,
+                prevAction: setPrevAction(),
+                inventory: payload.inventory
             }
         }
         case 'SET_IS_MEDICINE': {
             return {
                 ...state,
-                prevAction: setPrevAction(type),
+                prevAction: setPrevAction(),
                 isMedicine: payload.isMedicine
             }
         }
@@ -179,7 +180,7 @@ const TamagotchiReducer = (state, action) => {
         case 'SET_EVENT': {
             return {
                 ...state,
-                prevAction: setPrevAction("SET_EVENT"),
+                prevAction: setPrevAction(),
                 event: {
                     isEvent: true,
                     eventId: 1
@@ -199,6 +200,7 @@ const TamagotchiReducer = (state, action) => {
             return {
                 ...state,
                 isBored: true,
+                prevAction: setPrevAction(),
                 messages: payload.messages
             }
         }
@@ -212,7 +214,8 @@ const TamagotchiReducer = (state, action) => {
             return {
                 ...state,
                 isHere: false,
-                prevAction: setPrevAction(type),
+                tolerance: 0,
+                prevAction: setPrevAction(),
                 messages: payload.messages
             }
         }
@@ -220,7 +223,7 @@ const TamagotchiReducer = (state, action) => {
             return {
                 ...state,
                 isHere: true,
-                prevAction: setPrevAction(type),
+                prevAction: setPrevAction(),
                 messages: payload.messages
             }
         }

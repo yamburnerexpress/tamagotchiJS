@@ -57,7 +57,7 @@ export const ActionButtonGroup = () => {
             <ActionButton key='status' action={() => getStatusMessages()} label={`Get ${name}'s Status`}/>,
             <ActionButton key='food' action={() => setFoodOpt(true)} label={`Give ${name} Food`} />,
             <ActionButton key='pet' action={() => doPet()} label={`Pet ${name}`}/>,
-            ...tiredness > constants.TIREDNESS_THRESHOLD_1
+            ...tiredness >= constants.TIREDNESS_THRESHOLD_1
                 ? [<ActionButton key='nap' action={() => doSleep()} label={`Put ${name} Down for a Nap`} />] : [],
             ...status.isSick 
                 ? [<ActionButton key='medicine' action={() => giveMedicine()} label={`Give ${name} Medicine`} />] : [],

@@ -18,7 +18,7 @@ export const TamagotchiProvider = ({ children }) => {
 
     const giveFood = (food) => {
         const messages = [`${state.name} ate some ${food.name}!`]
-  
+
         const status = () => {
             let newStatus = getStatusById(food.status.id)
             if (newStatus.severity > state.status.severity) {
@@ -56,15 +56,7 @@ export const TamagotchiProvider = ({ children }) => {
     }
 
     const doPet = () => {
-        const [isTired, tiredMessage] = getTiredMessage();
-        const [isLove, loveMessage] = getLoveMessage();
         const isAnnoyed = getIsAnnoyed()
-
-        const newMessages = [
-            ...(isAnnoyed ? [`${state.name} is annoyed!`] : [`${state.name} liked getting pets!`]),
-            ...(isTired ? [tiredMessage] : []),
-            ...(isLove ? [loveMessage] : [])
-        ]
 
         if (state.tiredness === constants.MAX_TIREDNESS) {
             doSleep()
@@ -75,8 +67,7 @@ export const TamagotchiProvider = ({ children }) => {
                 type: "DO_PET",
                 payload: {
                     tiredness: Math.min(state.tiredness + 10, constants.MAX_TIREDNESS),
-                    love: (isAnnoyed ? Math.max(state.love - 5, 0) : Math.min(state.love + 5, constants.MAX_LOVE)),
-                    messages: newMessages
+                    love: (isAnnoyed ? Math.max(state.love - 5, 0) : Math.min(state.love + 5, constants.MAX_LOVE))
                 }
             })
         }
@@ -97,11 +88,7 @@ export const TamagotchiProvider = ({ children }) => {
 
     const wakeUp = () => {
         dispatch({type: "INCREMENT_AGE"})
-
-        dispatch({
-            type: "DO_WAKE",
-            payload: {}
-        })
+        dispatch({type: "DO_WAKE"})
     }
 
     const getHpMessage = () => {
@@ -229,12 +216,26 @@ export const TamagotchiProvider = ({ children }) => {
     }
 
     const playWithToy = (name) => {
-        dispatch({
-            type: "DO_PLAY_WITH_TOY",
-            payload: {
-                messages: [`${state.name} brought the ${name} back!`]
-            }
-        })
+        const isAnnoyed = getIsAnnoyed()
+
+        if (state.tiredness === constants.MAX_TIREDNESS) {
+            doSleep()
+        } else {
+            dispatch({type: "INCREMENT_AGE"})
+
+            const lostToy = Math.random() * 10 >= 3;
+
+            dispatch({
+                type: "DO_PLAY_WITH_TOY",
+                payload: {
+                    toyName: name,
+                    tiredness: Math.min(state.tiredness + 10, constants.MAX_TIREDNESS),
+                    love: (isAnnoyed ? Math.max(state.love - 5, 0) : Math.min(state.love + 5, constants.MAX_LOVE)),
+                    inventory: (lostToy ? state.inventory.filter(function(e) { return e.name !== name }) : state.inventory),
+                    lostToy: lostToy
+                }
+            })
+        }
     }
 
     const value = {
