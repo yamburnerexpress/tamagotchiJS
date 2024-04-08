@@ -4,7 +4,7 @@ import { Status } from "./Status";
 import {StatusIconGroup} from "./StatusIconGroup"
 import { Battery } from "./Battery";
 import {PixiApp} from "./PixiApp"
-import { Stage, Sprite, Container } from "@pixi/react";
+// import { Stage, Sprite, Container } from "@pixi/react";
 
 export const SpriteContainer = () => {
     return (
