@@ -15,6 +15,7 @@ export const initialState = {
     tolerance: 0,
     hp: 100,
     hunger: 0,
+    isEating: false,
     tiredness: 0,
     anger: 0,
     love: 0,
@@ -225,6 +226,18 @@ const TamagotchiReducer = (state, action) => {
                 isHere: true,
                 prevAction: setPrevAction(),
                 messages: payload.messages
+            }
+        }
+        case 'SET_IS_EATING': {
+            return {
+                ...state,
+                isEating: true
+            }
+        }
+        case 'REMOVE_IS_EATING': {
+            return {
+                ...state,
+                isEating: false
             }
         }
         default:
