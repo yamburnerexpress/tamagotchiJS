@@ -15,7 +15,7 @@ export const initialState = {
     tolerance: 0,
     hp: 100,
     hunger: 0,
-    isEating: false,
+    spriteState: 'base',
     tiredness: 0,
     anger: 0,
     love: 0,
@@ -228,16 +228,44 @@ const TamagotchiReducer = (state, action) => {
                 messages: payload.messages
             }
         }
-        case 'SET_IS_EATING': {
+        case 'SET_SPRITE_STATE': {
             return {
                 ...state,
-                isEating: true
+                spriteState: payload.spriteState
             }
         }
-        case 'REMOVE_IS_EATING': {
+        case 'RESET_SPRITE_STATE': {
+            let condition;
+            
+            if (!state.isHere) {
+                condition = 'away'
+            } else {
+                if (state.isAsleep) {
+                    condition = 'sleep'
+                } else {
+                    if (state.isBored) {
+                        condition = 'bored' //change to 'bored'
+                    } else {
+                        if (state.tolerance >= constants.TOLERANCE_THRESHOLD) {
+                            condition = 'base' //change to 'annoyed'
+                        } else {
+                            if (state.status.isSick) {
+                                condition = 'base' //change to 'sick'
+                            } else {
+                                if (state.love >= constants.LOVE_THRESHOLD) {
+                                    condition = 'love' //change to 'love'
+                                } else {
+                                    condition = 'base'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
             return {
                 ...state,
-                isEating: false
+                spriteState: condition
             }
         }
         default:

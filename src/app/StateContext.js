@@ -5,8 +5,8 @@ import * as constants from '../util/Constants';
 
 export const StateContext = createContext(initialState);
 
-export const TamagotchiProvider = ({ children }) => { 
-    const [state, dispatch] = useReducer(TamagotchiReducer, initialState);
+export const TamagotchiProvider = ({ children }) => {
+    const [ state, dispatch ] = useReducer(TamagotchiReducer, initialState);
 
     const getIsAnnoyed = () => {
         if (state.tolerance >= constants.TOLERANCE_THRESHOLD) {
@@ -43,11 +43,16 @@ export const TamagotchiProvider = ({ children }) => {
             }
         })
 
-        dispatch({type: "SET_IS_EATING"})
+        dispatch({
+            type: "SET_SPRITE_STATE",
+            payload: {
+                spriteState: "eat"
+            }
+        })
 
         await delay(3000);
 
-        dispatch({type: "REMOVE_IS_EATING"})
+        dispatch({type: "RESET_SPRITE_STATE"})
     }
 
     const giveMedicine = () => {
@@ -61,6 +66,8 @@ export const TamagotchiProvider = ({ children }) => {
                 messages: [`${state.name} is feeling all better!`]
             }
         })
+
+        dispatch({type: "RESET_SPRITE_STATE"})
     }
 
     const doPet = () => {
@@ -70,7 +77,6 @@ export const TamagotchiProvider = ({ children }) => {
             doSleep()
         } else {
             dispatch({type: "INCREMENT_AGE"})
-            dispatch({type: "REMOVE_IS_EATING"})
 
             dispatch({
                 type: "DO_PET",
@@ -80,11 +86,12 @@ export const TamagotchiProvider = ({ children }) => {
                 }
             })
         }
+
+        dispatch({type: "RESET_SPRITE_STATE"})
     }
 
     const doSleep = () => {
         dispatch({type: "INCREMENT_AGE"})
-        dispatch({type: "REMOVE_IS_EATING"})
 
         dispatch({
             type: "DO_SLEEP",
@@ -94,11 +101,14 @@ export const TamagotchiProvider = ({ children }) => {
                 messages: [`${state.name} fell asleep!`]
             }
         })
+
+        dispatch({type: "RESET_SPRITE_STATE"})
     }
 
     const wakeUp = () => {
         dispatch({type: "INCREMENT_AGE"})
         dispatch({type: "DO_WAKE"})
+        dispatch({type: "RESET_SPRITE_STATE"})
     }
 
     const getHpMessage = () => {
@@ -175,6 +185,7 @@ export const TamagotchiProvider = ({ children }) => {
         dispatch({type: "SET_EVENT"})
         dispatch({type: "REMOVE_TICK"})
         dispatch({type: "REMOVE_IS_BORED"})
+        dispatch({type: "RESET_SPRITE_STATE"})
     }
 
     const setIsBored = () => {
@@ -184,6 +195,7 @@ export const TamagotchiProvider = ({ children }) => {
                 messages: [`${state.name} is bored!`]
             }
         })
+        dispatch({type: "RESET_SPRITE_STATE"})
     }
 
     const goPlay = () => {
@@ -196,6 +208,7 @@ export const TamagotchiProvider = ({ children }) => {
                 messages: [`${state.name} went off to play on his own!`]
             }
         })
+        dispatch({type: "RESET_SPRITE_STATE"})
     }
 
     const jingleKeys = () => {
@@ -223,6 +236,7 @@ export const TamagotchiProvider = ({ children }) => {
                 messages: messages
             }
         })
+        dispatch({type: "RESET_SPRITE_STATE"})
     }
 
     const playWithToy = (name) => {
@@ -245,6 +259,8 @@ export const TamagotchiProvider = ({ children }) => {
                     lostToy: lostToy
                 }
             })
+
+            dispatch({type: "RESET_SPRITE_STATE"})
         }
     }
 
@@ -258,7 +274,7 @@ export const TamagotchiProvider = ({ children }) => {
         tolerance: state.tolerance,
         hp: state.hp,
         hunger: state.hunger,
-        isEating: state.isEating,
+        spriteState: state.spriteState,
         tiredness: state.tiredness,
         anger: state.anger,
         love: state.love,
