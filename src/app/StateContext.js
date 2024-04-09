@@ -70,6 +70,7 @@ export const TamagotchiProvider = ({ children }) => {
             doSleep()
         } else {
             dispatch({type: "INCREMENT_AGE"})
+            dispatch({type: "REMOVE_IS_EATING"})
 
             dispatch({
                 type: "DO_PET",
@@ -83,6 +84,7 @@ export const TamagotchiProvider = ({ children }) => {
 
     const doSleep = () => {
         dispatch({type: "INCREMENT_AGE"})
+        dispatch({type: "REMOVE_IS_EATING"})
 
         dispatch({
             type: "DO_SLEEP",
