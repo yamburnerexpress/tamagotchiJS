@@ -11,6 +11,7 @@ const spritesheet = new Spritesheet(baseTexture, royJson)
 await spritesheet.parse()
 
 export const RoySprite = (props) => {
+
     const willMount = useRef(true);
     const [textures, setTextures] = useState([]);
 
@@ -30,7 +31,7 @@ export const RoySprite = (props) => {
             textures={textures}
             isPlaying={true}
             initialFrame={0}
-            animationSpeed={0.1}
+            animationSpeed={0.15}
             x={100}
             y={150}
         />
