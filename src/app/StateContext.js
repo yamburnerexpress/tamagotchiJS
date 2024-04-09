@@ -16,7 +16,9 @@ export const TamagotchiProvider = ({ children }) => {
         }
     }
 
-    const giveFood = (food) => {
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+
+    const giveFood = async (food) => {
         const messages = [`${state.name} ate some ${food.name}!`]
 
         const status = () => {
@@ -40,6 +42,12 @@ export const TamagotchiProvider = ({ children }) => {
                 messages: messages
             }
         })
+
+        dispatch({type: "SET_IS_EATING"})
+
+        await delay(3000);
+
+        dispatch({type: "REMOVE_IS_EATING"})
     }
 
     const giveMedicine = () => {
@@ -248,6 +256,7 @@ export const TamagotchiProvider = ({ children }) => {
         tolerance: state.tolerance,
         hp: state.hp,
         hunger: state.hunger,
+        isEating: state.isEating,
         tiredness: state.tiredness,
         anger: state.anger,
         love: state.love,

@@ -3,7 +3,7 @@ import { RoySprite } from "./RoySprite";
 import useTamagotchi from "../app/StateContext";
 
 export const PixiApp = () => {
-    const { isHere, isAsleep } = useTamagotchi('base');
+    const { isHere, isAsleep, isEating } = useTamagotchi('base');
 
     const width = 250;
     const height = 250;
@@ -25,8 +25,9 @@ export const PixiApp = () => {
         return (
             <div id="game_container" className="sprite">
                 <Stage {...stageProps}>
-                    {!isAsleep && <RoySprite state='base'/>}
                     {isAsleep && <RoySprite state='sleep'/>}
+                    {!isAsleep && isEating && <RoySprite state='eat'/>}
+                    {!isAsleep && !isEating && <RoySprite state='base'/>}
                 </Stage>
             </div>
         )
