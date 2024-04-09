@@ -1,36 +1,36 @@
-// import { Stage, Sprite, Container } from "@pixi/react";
-// import { useEffect } from "react";
-// import { render } from "react-dom";
+import { Stage } from "@pixi/react";
 import { RoySprite } from "./RoySprite";
+import useTamagotchi from "../app/StateContext";
 
 export const PixiApp = () => {
-    // const width = 250;
-    // const height = 250;
-    // const stageProps = {
-    //     height,
-    //     width,
-    //     options: {
-    //         backgroundAlpha: 0
-    //     },
-    // };
+    const { isHere, isAsleep } = useTamagotchi('base');
 
-    return (
-        <div id="game_container" className="sprite">
-            <RoySprite />
-            {/* <Stage {...stageProps}>
-                <Container x={width} y={height}>
-                    <Roy />
-                    <Sprite 
-                        image={roy} 
-                        anchor={{
-                            x: 1,
-                            y: 1,
-                        }}
-                    />
-                </Container>
-            </Stage> */}
+    const width = 250;
+    const height = 250;
+    const stageProps = {
+        height,
+        width,
+        options: {
+            backgroundAlpha: 0
+        },
+    };
+
+    if (!isHere) {
+        return (
+            <div id="game_container" className="sprite">
+            <Stage {...stageProps} />
         </div>
-    )
-}
+        )
+    } else {
+        return (
+            <div id="game_container" className="sprite">
+                <Stage {...stageProps}>
+                    {!isAsleep && <RoySprite state='base'/>}
+                    {isAsleep && <RoySprite state='sleep'/>}
+                </Stage>
+            </div>
+        )
+    }
 
-// render(<PixiApp />, document.getElementById('game_container'))
+    
+}
