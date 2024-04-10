@@ -1,21 +1,23 @@
 import React from "react";
 import '../css/display.css'
 import { Status } from "./Status";
+import { EventStatus } from "./events/EventStatus";
 import {StatusIconGroup} from "./StatusIconGroup"
 import { Battery } from "./Battery";
 import {PixiApp} from "./PixiApp"
-// import { Stage, Sprite, Container } from "@pixi/react";
+// import {useEvent} from "../app/EventContext"
 
-export const SpriteContainer = () => {
+export const SpriteContainer = (props) => {
     return (
         <div className="topPanelContainer">
             <div className="topPanel">
-                <StatusIconGroup />
+                {!props.event && <StatusIconGroup />}
                 <div className="spriteContainer">
                     <Battery />
                     <PixiApp />
                 </div>
-                <Status />
+                {!props.event && <Status />}
+                {props.event && <EventStatus />}
             </div>
         </div>
     )

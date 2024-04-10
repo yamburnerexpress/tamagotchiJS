@@ -1,11 +1,12 @@
 .topPanelContainer {
     position: relative;
-    border: 2px solid black;
-    border-radius: 5%;
+    /* border: 2px solid black; */
+    border-radius: 3%;
     /* height: 100px; */
     width: 100%;
     aspect-ratio : 1 / 1;
     background-image: url('../../public/screen_bg.png');
+    background-repeat: no-repeat;
 }
 
 .topPanel {
