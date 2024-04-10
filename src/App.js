@@ -11,14 +11,14 @@ export default function App() {
 
   return (
     <TamagotchiProvider>
-      <EventCounter />
-      <Health />
-      <div className="App" role="main">
-        <SpriteContainer />
-        <div className="bottomPanel">
-          <ActionButtonGroup />
+        <EventCounter />
+        <Health />
+        <div className="App" role="main">
+          <SpriteContainer />
+          <div className="bottomPanel">
+            <ActionButtonGroup />
+          </div>
         </div>
-      </div>
     </TamagotchiProvider>
   );
 }

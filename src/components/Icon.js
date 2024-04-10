@@ -11,22 +11,22 @@ export const Icon = (props) => {
             case "full_battery": {
                 // <Icon icon="pixelarticons:battery-full" />
                 // return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><rect width="18" height="12" x="2" y="6" rx="2"/><path d="M7 10v4m4-4v4m4-4v4m5-4h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H20z"/></g></svg>
-                return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M18 5H2v14h18v-4h2V9h-2V5zm0 2v10H4V7zM8 9H6v6h2zm2 0h2v6h-2zm6 0h-2v6h2z"/></svg>
+                return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><path fill="currentColor" d="M18 5H2v14h18v-4h2V9h-2V5zm0 2v10H4V7zM8 9H6v6h2zm2 0h2v6h-2zm6 0h-2v6h2z"/></svg>
             }
             case "med_battery": {
                 // <Icon icon="pixelarticons:battery-2" />
                 // return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><g fill="none" stroke="orangered" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><rect width="18" height="12" x="2" y="6" rx="2"/><path d="M20 10h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H20zM7 10v4m4-4v4"/></g></svg>
-                return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="orangered" d="M4 5H2v14h18v-4h2V9h-2V5zm14 2v10H4V7zM6 9h2v6H6zm6 0h-2v6h2z"/></svg>
+                return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><path fill="currentColor" d="M4 5H2v14h18v-4h2V9h-2V5zm14 2v10H4V7zM6 9h2v6H6zm6 0h-2v6h2z"/></svg>
             }
             case "low_battery": {
                 // <Icon icon="pixelarticons:battery-1" />
                 // return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><g fill="none" stroke="firebrick" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><rect width="18" height="12" x="2" y="6" rx="2"/><path d="M7 10v4m13-4h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H20z"/></g></svg>
-                return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="firebrick" d="M4 5H2v14h18v-4h2V9h-2V5zm14 2v10H4V7zM8 9H6v6h2z"/></svg>
+                return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><path fill="currentColor" d="M4 5H2v14h18v-4h2V9h-2V5zm14 2v10H4V7zM8 9H6v6h2z"/></svg>
             }
             case "charging_battery": {
                 // <Icon icon="pixelarticons:battery-charging" />
                 // return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><g fill="none" stroke="seagreen" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><rect width="18" height="12" x="2" y="6" rx="2"/><path d="M20 10h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H20zm-8.6-1L9 12h4l-2.4 3"/></g></svg>
-                return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><path fill="seagreen" d="M4 5H2v14h6v-2H4V7h4V5zm10 0h6v4h2v6h-2v4h-6v-2h4V7h-4zm-4 2h2v4h4v2h-2v2h-2v2h-2v-4H6v-2h2V9h2z"/></svg>
+                return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label={label}><path fill="currentColor" d="M4 5H2v14h6v-2H4V7h4V5zm10 0h6v4h2v6h-2v4h-6v-2h4V7h-4zm-4 2h2v4h4v2h-2v2h-2v2h-2v-4H6v-2h2V9h2z"/></svg>
             }
             case "sick": {
                 // MaterialSymbolsSickOutline
