@@ -228,6 +228,13 @@ const TamagotchiReducer = (state, action) => {
                 messages: payload.messages
             }
         }
+        case 'SET_PLAYED_GAME': {
+            return {
+                ...state,
+                tolerance: incrementTolerance(),
+                prevAction: setPrevAction()
+            }
+        }
         case 'SET_SPRITE_STATE': {
             return {
                 ...state,

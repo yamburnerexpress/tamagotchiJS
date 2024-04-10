@@ -199,7 +199,6 @@ export const TamagotchiProvider = ({ children }) => {
     }
 
     const goPlay = () => {
-        dispatch({type: "INCREMENT_AGE"})
         dispatch({type: "REMOVE_TICK"})
         dispatch({type: "REMOVE_IS_BORED"})
         dispatch({
@@ -264,6 +263,10 @@ export const TamagotchiProvider = ({ children }) => {
         }
     }
 
+    const setPlayedGame = () => {
+        dispatch({type: "SET_PLAYED_GAME"})
+    }
+
     const value = {
         name: state.name,
         age: state.age,
@@ -298,7 +301,8 @@ export const TamagotchiProvider = ({ children }) => {
         goPlay,
         jingleKeys,
         // bringBackToy,
-        playWithToy
+        playWithToy,
+        setPlayedGame
     }
 
     return ( 
