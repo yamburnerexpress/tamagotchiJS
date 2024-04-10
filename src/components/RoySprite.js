@@ -24,10 +24,17 @@ export const RoySprite = (props) => {
         loadSpritesheet();
         willMount.current = false;
     }
+
+    const opts = ['ROCK', 'PAPER', 'SCISSORS'];
+
+    const doesLoop = (
+        opts.includes(props.state) ? false : true
+    )
     
     return (
         <AnimatedSprite
             anchor={.5}
+            loop={doesLoop}
             textures={textures}
             isPlaying={true}
             initialFrame={0}

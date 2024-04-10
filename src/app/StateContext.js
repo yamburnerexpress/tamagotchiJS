@@ -267,6 +267,15 @@ export const TamagotchiProvider = ({ children }) => {
         dispatch({type: "SET_PLAYED_GAME"})
     }
 
+    const setSpriteState = (spriteState) => {
+        dispatch({
+            type: "SET_SPRITE_STATE",
+            payload: {
+                spriteState: spriteState
+            }
+        })
+    }
+
     const value = {
         name: state.name,
         age: state.age,
@@ -302,7 +311,8 @@ export const TamagotchiProvider = ({ children }) => {
         jingleKeys,
         // bringBackToy,
         playWithToy,
-        setPlayedGame
+        setPlayedGame,
+        setSpriteState
     }
 
     return ( 
