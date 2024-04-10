@@ -8,6 +8,24 @@
   position: relative;
 }
 
+/* .main {
+  top: 0;
+  position: center;
+  background-image: url('../public/tamagotchi_bg.png');
+  background-repeat: no-repeat;
+  // background-attachment: fixed; 
+  background-position: center;
+  height: 1188px;
+  // min-height: 100%;
+  background-size: contain;
+} */
+
+/* body {
+  background-color: #D1C174;
+  background-size: 100%;
+  background-attachment: fixed;
+} */
+
 button {
   cursor: pointer;
 }
