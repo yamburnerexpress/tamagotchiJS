@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { EventActionButtonGroup } from './EventActionButtonGroup.js';
 import { SpriteContainer } from '../SpriteContainer.js';
-import useTamagotchi from '../../app/StateContext.js';
-import useEvent from '../../app/EventContext.js';
+// import useEvent from '../../app/EventContext.js';
 
 export const RockPaperScissors = () => {
-    const {data} = useEvent();
+    // const {data} = useEvent();
 
 
 
