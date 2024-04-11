@@ -46,8 +46,6 @@ const TamagotchiReducer = (state, action) => {
   
     switch (type) {
         case 'GIVE_FOOD': {
-            console.log("GIVE_FOOD", payload)
-  
             return {
                 ...state,
                 hp: payload.hp,
@@ -60,8 +58,6 @@ const TamagotchiReducer = (state, action) => {
             };  
         }
         case 'GIVE_MEDICINE': {
-            console.log("GIVE_MEDICINE", payload)
-
             return {
                 ...state,
                 timeSick: 0,
@@ -73,8 +69,6 @@ const TamagotchiReducer = (state, action) => {
             }
         }
         case 'DO_PET': {
-            console.log("DO_PET", payload)
-
             return {
                 ...state,
                 isBored: false,
@@ -85,8 +79,6 @@ const TamagotchiReducer = (state, action) => {
             }
         }
         case 'DO_SLEEP': {
-            console.log("DO_SLEEP", payload)
-
             return {
                 ...state,
                 hp: constants.MAX_HP,
@@ -107,8 +99,6 @@ const TamagotchiReducer = (state, action) => {
             }
         }
         case 'GET_STATUS': {
-            console.log(state);
-
             return {
                 ...state,
                 prevAction: setPrevAction(),
@@ -122,8 +112,6 @@ const TamagotchiReducer = (state, action) => {
             }
         }
         case 'GET_TOY': {
-            console.log("GET_TOY", payload)
-
             const newInv = Array.from(state.inventory ?? []);
             newInv.push(payload.inventory);
             
@@ -254,7 +242,7 @@ const TamagotchiReducer = (state, action) => {
                         condition = 'bored' //change to 'bored'
                     } else {
                         if (state.tolerance >= constants.TOLERANCE_THRESHOLD) {
-                            condition = 'base' //change to 'annoyed'
+                            condition = 'bored' //change to 'annoyed'
                         } else {
                             if (state.status.isSick) {
                                 condition = 'base' //change to 'sick'

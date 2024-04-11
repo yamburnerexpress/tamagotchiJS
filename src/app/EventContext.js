@@ -18,7 +18,6 @@ const EventReducer = (state, action) => {
 
     switch(type) {
         case "SET_EVENT": {
-            console.log("SET_EVENT", payload)
             return {
                 ...state,
                 isEvent: true,
@@ -41,7 +40,6 @@ const EventReducer = (state, action) => {
             }
         }
         case "RESET_EVENT_DATA": {
-            // add to context
             return {
                 ...initialState
             }
@@ -72,7 +70,6 @@ export const EventProvider = ({ children }) => {
     const playRPSTurn = (playerSelect) => {
         const options = ["ROCK", "PAPER", "SCISSORS"]
         const opponentSelect = options[Math.floor((Math.random() * options.length))]
-        console.log(opponentSelect)
 
         const winState = () => {
             if (opponentSelect === playerSelect) {

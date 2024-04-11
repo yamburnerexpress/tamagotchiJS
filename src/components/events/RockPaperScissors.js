@@ -6,8 +6,6 @@ import { SpriteContainer } from '../SpriteContainer.js';
 export const RockPaperScissors = () => {
     // const {data} = useEvent();
 
-
-
     return (
         <>
             <SpriteContainer event={true}/>
