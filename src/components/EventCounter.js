@@ -3,10 +3,10 @@ import useTamagotchi from "../app/StateContext";
 import { useInterval } from "../util/UseInterval";
 
 export const EventCounter = () => {
-    const { isHere, isBored, isAsleep, tick, setTick, goPlay, setIsBored, prevAction } = useTamagotchi();
+    const { isHere, isBored, isAsleep, tick, setTick, goPlay, setIsBored, prevAction, status } = useTamagotchi();
 
     useInterval(() => {
-        if ((Date.now() - prevAction.time) / 1000 >= 10 && isHere && !isAsleep && !isBored) {
+        if ((Date.now() - prevAction.time) / 1000 >= 10 && isHere && !isAsleep && !isBored && !status.isSick) {
             setIsBored();
         }
         if (isBored) {

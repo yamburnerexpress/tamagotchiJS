@@ -63,6 +63,7 @@ const TamagotchiReducer = (state, action) => {
                 timeSick: 0,
                 hp: payload.hp,
                 isBored: false,
+                tolerance: incrementTolerance(),
                 status: payload.status,
                 prevAction: setPrevAction(),
                 messages: payload.messages
@@ -238,14 +239,14 @@ const TamagotchiReducer = (state, action) => {
                 if (state.isAsleep) {
                     condition = 'sleep'
                 } else {
-                    if (state.isBored) {
-                        condition = 'bored' //change to 'bored'
+                    if (state.status.isSick) {
+                        condition = 'sick' //change to 'sick'
                     } else {
-                        if (state.tolerance >= constants.TOLERANCE_THRESHOLD) {
-                            condition = 'bored' //change to 'annoyed'
+                        if (state.isBored) {
+                            condition = 'bored' //change to 'bored'
                         } else {
-                            if (state.status.isSick) {
-                                condition = 'base' //change to 'sick'
+                            if (state.tolerance >= constants.TOLERANCE_THRESHOLD) {
+                                condition = 'bored' //change to 'annoyed'
                             } else {
                                 if (state.love >= constants.LOVE_THRESHOLD) {
                                     condition = 'love' //change to 'love'
