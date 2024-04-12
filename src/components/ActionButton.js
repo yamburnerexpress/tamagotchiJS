@@ -7,7 +7,7 @@ export const ActionButton = (props) => {
     }
     return (
         <button 
-            className='actionButton' 
+            className='actionButton ripple' 
             onClick={handleClick}
         >
             {props.label}

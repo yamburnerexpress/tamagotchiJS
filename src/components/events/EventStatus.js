@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useEvent from "../../app/EventContext";
 import useTamagotchi from "../../app/StateContext";
-import { useInterval } from "../../util/UseInterval";
+import { useInterval } from "../../hooks/UseInterval";
 import "../../css/display.css"
 
 export const EventStatus = () => {

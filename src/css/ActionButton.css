@@ -21,6 +21,13 @@
 @media(hover: hover) and (pointer: fine) {
     .actionButton:hover {
         color: white;
-        background-color:rgb(102, 88, 164);
+        background:#6658a4;
     }
 }
+
+.actionButton:active {
+    background-color: #c7c2da;
+    background-size: 100%;
+    transition: background 0s;
+    transform: scale(.90);
+  }

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import useTamagotchi from "../app/StateContext";
-import { useInterval } from "../util/UseInterval";
+import { useInterval } from "../hooks/UseInterval";
 
 export const EventCounter = () => {
     const { isHere, isBored, isAsleep, tick, setTick, goPlay, setIsBored, prevAction, status } = useTamagotchi();
