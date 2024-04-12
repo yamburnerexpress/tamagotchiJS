@@ -7,13 +7,16 @@ import useTamagotchi from '../app/StateContext.js';
 import useEvent from '../app/EventContext.js';
 
 export const Game = () => {
-    const { age, status } = useTamagotchi();
+    const { age, status, setSpriteState } = useTamagotchi();
     const {setRockPaperScissors, removeEvent, isEvent, name} = useEvent();
 
     useEffect(() => {
         switch (age) {
-            case 10 && !status.isSick: {
-                setRockPaperScissors();
+            case 10: {
+                if (!status.isSick) {
+                    setSpriteState('base')
+                    setRockPaperScissors();
+                }
                 break;
             }
             default: {
