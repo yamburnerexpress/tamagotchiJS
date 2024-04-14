@@ -5,15 +5,12 @@ export const initialState = {
     name: "Roy",
     age: 0,
     tick: 0,
-    event: {
-        isEvent: false,
-        eventId: 0
-    },
     isBored: false,
     isHere: true,
     timeSick: 0,
     tolerance: 0,
     hp: 100,
+    piss: 60,
     hunger: 0,
     spriteState: 'base',
     tiredness: 0,
@@ -22,6 +19,7 @@ export const initialState = {
     status: getStatusById(1),
     isMedicine: false,
     isAsleep: false,
+    isPissing: false,
     prevAction: {
         type: "",
         time: Date.now(),
@@ -146,12 +144,14 @@ const TamagotchiReducer = (state, action) => {
                     age: state.age + 1,
                     timeSick: state.timeSick + 1,
                     hp: Math.max(state.hp - state.status.effect.hp, 0),
+                    piss: Math.min(state.piss + 7, 100),
                     tiredness: Math.min(state.tiredness + state.status.effect.tiredness, constants.MAX_TIREDNESS)
                 } 
             } else {
                 return {
                     ...state,
-                    age: state.age + 1
+                    age: state.age + 1,
+                    piss: Math.min(state.piss + 7, 100)
                 }
             }
         }
@@ -224,6 +224,26 @@ const TamagotchiReducer = (state, action) => {
                 prevAction: setPrevAction()
             }
         }
+        case 'SET_HAS_TO_PISS': {
+            return {
+                ...state,
+                isPissing: true,
+                spriteState: 'pee',
+                prevAction: setPrevAction(),
+                messages: [`${state.name} has to piss!`]
+            }
+        }
+        case 'GO_PISS': {
+            const newVal = Math.max(state.piss - 1, 0);
+            return {
+                ...state,
+                piss: newVal,
+                prevAction: setPrevAction(),
+                spriteState: newVal === 0 ? 'base' : 'pee',
+                isPissing: newVal === 0 ? false : true,
+                messages: []
+            }
+        }
         case 'SET_SPRITE_STATE': {
             return {
                 ...state,
@@ -239,19 +259,23 @@ const TamagotchiReducer = (state, action) => {
                 if (state.isAsleep) {
                     condition = 'sleep'
                 } else {
-                    if (state.status.isSick) {
-                        condition = 'sick' //change to 'sick'
+                    if (state.isPissing) {
+                        condition = 'pee'
                     } else {
-                        if (state.isBored) {
-                            condition = 'bored' //change to 'bored'
+                        if (state.status.isSick) {
+                            condition = 'sick'
                         } else {
-                            if (state.tolerance >= constants.TOLERANCE_THRESHOLD) {
-                                condition = 'bored' //change to 'annoyed'
+                            if (state.isBored) {
+                                condition = 'bored'
                             } else {
-                                if (state.love >= constants.LOVE_THRESHOLD) {
-                                    condition = 'love' //change to 'love'
+                                if (state.tolerance >= constants.TOLERANCE_THRESHOLD) {
+                                    condition = 'bored'
                                 } else {
-                                    condition = 'base'
+                                    if (state.love >= constants.LOVE_THRESHOLD) {
+                                        condition = 'love'
+                                    } else {
+                                        condition = 'base'
+                                    }
                                 }
                             }
                         }
