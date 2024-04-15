@@ -28,6 +28,8 @@ export const HoldButton = (props) => {
             onMouseDown={startCounter}
             onMouseUp={stopCounter}
             onMouseLeave={stopCounter}
+            onTouchStart={startCounter}
+            onTouchEnd={stopCounter}
         >
             {props.label}
         </button>

@@ -11,7 +11,7 @@ export const Game = () => {
     const {setRockPaperScissors, removeEvent, isEvent, name} = useEvent();
 
     useEffect(() => {
-        if (age / 10 === 1) {
+        if (age !== 0 && age % 10 === 0) {
             if (!status.isSick && !isPissing) {
                 setSpriteState('base')
                 setRockPaperScissors();

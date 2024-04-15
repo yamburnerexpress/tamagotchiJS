@@ -10,7 +10,7 @@ export const initialState = {
     timeSick: 0,
     tolerance: 0,
     hp: 100,
-    piss: 60,
+    piss: 0,
     hunger: 0,
     spriteState: 'base',
     tiredness: 0,

@@ -5,14 +5,14 @@ import useTamagotchi from "../app/StateContext";
 export const PixiApp = () => {
     const { spriteState } = useTamagotchi();
 
-    const width = 250;
-    const height = 250;
+    const width = 200;
+    const height = 240;
     const stageProps = {
         height,
         width,
         options: {
             backgroundAlpha: 0
-        },
+        }
     };
 
     if (spriteState === "away") {
