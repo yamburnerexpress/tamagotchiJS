@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import useTamagotchi from "../app/StateContext.js";
 import { ActionButton } from "./ActionButton.js";
+import { HoldButton } from "./HoldButton.js";
 import { FoodButton } from "./FoodButton.js";
 import { allFoods } from '../util/getFood.js';
 import * as constants from '../util/Constants.js'
@@ -20,7 +21,9 @@ export const ActionButtonGroup = () => {
         doSleep, 
         wakeUp, 
         giveMedicine,
-        playWithToy 
+        playWithToy,
+        goPiss,
+        isPissing
     } = useTamagotchi();
     const [foodOpt, setFoodOpt] = useState(false);
 
@@ -38,6 +41,12 @@ export const ActionButtonGroup = () => {
         return (
             <div className='actions'>
                 <ActionButton action={() => wakeUp()} label={`Wake ${name} Up`}/>
+            </div>
+        )
+    } else if (isPissing) {
+        return (
+            <div className='actions'>
+                <HoldButton action={goPiss} label={'Hold to Piss'} />
             </div>
         )
     } else if (foodOpt) {

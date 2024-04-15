@@ -91,8 +91,6 @@ export const TamagotchiProvider = ({ children }) => {
     }
 
     const doSleep = () => {
-        dispatch({type: "INCREMENT_AGE"})
-
         dispatch({
             type: "DO_SLEEP",
             payload: {
@@ -263,9 +261,11 @@ export const TamagotchiProvider = ({ children }) => {
         }
     }
 
-    const setPlayedGame = () => {
-        dispatch({type: "SET_PLAYED_GAME"})
-    }
+    const setPlayedGame = () => {dispatch({type: "SET_PLAYED_GAME"})}
+
+    const setHasToPiss = () => {dispatch({type: "SET_HAS_TO_PISS"})}
+
+    const goPiss = () => {dispatch({type: "GO_PISS"})}
 
     const setSpriteState = (spriteState) => {
         dispatch({
@@ -285,6 +285,7 @@ export const TamagotchiProvider = ({ children }) => {
         isHere: state.isHere,
         tolerance: state.tolerance,
         hp: state.hp,
+        piss: state.piss,
         hunger: state.hunger,
         spriteState: state.spriteState,
         tiredness: state.tiredness,
@@ -293,6 +294,7 @@ export const TamagotchiProvider = ({ children }) => {
         status: state.status,
         isMedicine: state.isMedicine,
         isAsleep: state.isAsleep,
+        isPissing: state.isPissing,
         prevAction: state.prevAction,
         inventory: state.inventory,
         messages: state.messages,
@@ -309,9 +311,10 @@ export const TamagotchiProvider = ({ children }) => {
         setIsBored,
         goPlay,
         jingleKeys,
-        // bringBackToy,
         playWithToy,
         setPlayedGame,
+        setHasToPiss,
+        goPiss,
         setSpriteState
     }
 

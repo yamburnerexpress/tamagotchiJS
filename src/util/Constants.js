@@ -14,3 +14,4 @@ export const ANGER_THRESHOLD_1 = 50;
 export const ANGER_THRESHOLD_2 = 80;
 export const MAX_LOVE = 100;
 export const LOVE_THRESHOLD = 50;
+export const PISS_THRESHOLD = 70;

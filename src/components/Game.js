@@ -7,21 +7,17 @@ import useTamagotchi from '../app/StateContext.js';
 import useEvent from '../app/EventContext.js';
 
 export const Game = () => {
-    const { age, status, setSpriteState } = useTamagotchi();
+    const { age, status, setSpriteState, isPissing } = useTamagotchi();
     const {setRockPaperScissors, removeEvent, isEvent, name} = useEvent();
 
     useEffect(() => {
-        switch (age) {
-            case 10: {
-                if (!status.isSick) {
-                    setSpriteState('base')
-                    setRockPaperScissors();
-                }
-                break;
+        if (age !== 0 && age % 10 === 0) {
+            if (!status.isSick && !isPissing) {
+                setSpriteState('base')
+                setRockPaperScissors();
             }
-            default: {
-                removeEvent();
-            }
+        } else {
+            removeEvent()
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [age])
