@@ -27,8 +27,7 @@ export const ActionButtonGroup = () => {
         playWithToy,
         goPiss,
         isPissing,
-        setSpriteState,
-        setMessages
+        dreamInit
     } = useTamagotchi();
     const {startDream} = useEvent();
     const [foodOpt, setFoodOpt] = useState(false);
@@ -47,8 +46,7 @@ export const ActionButtonGroup = () => {
     } else if (isAsleep) {
         const handleClick = () => {
             setDisabled(true)
-            setMessages()
-            setSpriteState('dreamintro')
+            dreamInit()
             setTimeout(() => {
                 startDream("tornado")
             }, 3000)

@@ -272,25 +272,29 @@ const TamagotchiReducer = (state, action) => {
             if (!state.isHere) {
                 condition = 'away'
             } else {
-                if (state.isAsleep) {
-                    condition = 'sleep'
+                if (state.spriteState === "dreamintro") {
+                    condition = 'dreamintro'
                 } else {
-                    if (state.isPissing) {
-                        condition = 'pee'
+                    if (state.isAsleep) {
+                        condition = 'sleep'
                     } else {
-                        if (state.status.isSick) {
-                            condition = 'sick'
+                        if (state.isPissing) {
+                            condition = 'pee'
                         } else {
-                            if (state.isBored) {
-                                condition = 'bored'
+                            if (state.status.isSick) {
+                                condition = 'sick'
                             } else {
-                                if (state.tolerance >= constants.TOLERANCE_THRESHOLD) {
+                                if (state.isBored) {
                                     condition = 'bored'
                                 } else {
-                                    if (state.love >= constants.LOVE_THRESHOLD) {
-                                        condition = 'love'
+                                    if (state.tolerance >= constants.TOLERANCE_THRESHOLD) {
+                                        condition = 'bored'
                                     } else {
-                                        condition = 'base'
+                                        if (state.love >= constants.LOVE_THRESHOLD) {
+                                            condition = 'love'
+                                        } else {
+                                            condition = 'base'
+                                        }
                                     }
                                 }
                             }
