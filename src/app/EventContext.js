@@ -1,4 +1,5 @@
 import React, { createContext, useReducer, useContext } from 'react';
+import dreams from '../data/dreams.json'
 
 const initialState = {
     isEvent: false,
@@ -9,6 +10,14 @@ const initialState = {
             playerSelect: null,
             opponentSelect: null,
             winState: null
+        },
+        DREAM: {
+            name: null,
+            hasPlayed: false,
+            frame: 0,
+            isFinal: false,
+            sprite: null,
+            messages: []
         }
     }
 }
@@ -42,6 +51,20 @@ const EventReducer = (state, action) => {
         case "RESET_EVENT_DATA": {
             return {
                 ...initialState
+            }
+        }
+        case "SET_DREAM": {
+            return {
+                ...state,
+                isEvent: true,
+                name: "DREAM",
+                data: {
+                    ...state.data,
+                    DREAM: {
+                        hasPlayed: true,
+                        ...payload.DREAM
+                    }
+                }
             }
         }
         default:
@@ -110,6 +133,50 @@ export const EventProvider = ({ children }) => {
         })
     }
 
+    const getDreamFrameById = (name, frame) => {
+        const dreamFrames = dreams[name];
+        for (var i = 0; i < dreamFrames.length; i++) {
+            if (dreamFrames[i].id === frame) {
+                return dreamFrames[i]
+            }
+        }
+    }
+
+    const startDream = (name) => {
+        const dreamFrame = getDreamFrameById(name, 1)
+        
+        dispatch({
+            type: "SET_DREAM",
+            payload: {
+                DREAM: {
+                    name: name,
+                    frame: 1,
+                    sprite: dreamFrame.frame,
+                    messages: dreamFrame.messages
+                }
+            } 
+        })
+    }
+
+    const nextDreamFrame = () => {
+        const newFrame = state.data.DREAM.frame + 1;
+        const dreamFrame = getDreamFrameById(state.data.DREAM.name, newFrame)
+        const finalFrame = dreams[state.data.DREAM.name].slice(-1)[0]
+        
+        dispatch({
+            type: "SET_DREAM",
+            payload: {
+                DREAM: {
+                    name: state.data.DREAM.name,
+                    frame: newFrame,
+                    isFinal: dreamFrame.id === finalFrame.id,
+                    sprite: dreamFrame.frame,
+                    messages: dreamFrame.messages
+                }
+            } 
+        })
+    }
+
     const resetEventData = () => {
         dispatch({type: "RESET_EVENT_DATA"})
     }
@@ -121,6 +188,8 @@ export const EventProvider = ({ children }) => {
         removeEvent,
         setRockPaperScissors,
         playRPSTurn,
+        startDream,
+        nextDreamFrame,
         resetEventData
     }
 

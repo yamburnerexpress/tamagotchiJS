@@ -244,6 +244,22 @@ const TamagotchiReducer = (state, action) => {
                 messages: []
             }
         }
+        case 'SET_MESSAGES': {
+            return {
+                ...state,
+                messages: payload.messages
+            }
+        }
+        case 'SET_PREV_ACTION': {
+            return {
+                ...state,
+                prevAction: {
+                    type: payload.action, 
+                    time: Date.now(), 
+                    payload: {}
+                }
+            }
+        }
         case 'SET_SPRITE_STATE': {
             return {
                 ...state,

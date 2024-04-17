@@ -1,0 +1,495 @@
+{ "frames": {
+   "tornado_0.aseprite": {
+    "frame": { "x": 5, "y": 5, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_1.aseprite": {
+    "frame": { "x": 5, "y": 5, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_2.aseprite": {
+    "frame": { "x": 170, "y": 5, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_3.aseprite": {
+    "frame": { "x": 170, "y": 5, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_4.aseprite": {
+    "frame": { "x": 335, "y": 5, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_5.aseprite": {
+    "frame": { "x": 335, "y": 5, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_6.aseprite": {
+    "frame": { "x": 170, "y": 5, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_7.aseprite": {
+    "frame": { "x": 170, "y": 5, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_8.aseprite": {
+    "frame": { "x": 500, "y": 5, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_9.aseprite": {
+    "frame": { "x": 500, "y": 5, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_10.aseprite": {
+    "frame": { "x": 665, "y": 5, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_11.aseprite": {
+    "frame": { "x": 665, "y": 5, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_12.aseprite": {
+    "frame": { "x": 830, "y": 5, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_13.aseprite": {
+    "frame": { "x": 830, "y": 5, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_14.aseprite": {
+    "frame": { "x": 5, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_15.aseprite": {
+    "frame": { "x": 5, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_16.aseprite": {
+    "frame": { "x": 170, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_17.aseprite": {
+    "frame": { "x": 170, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_18.aseprite": {
+    "frame": { "x": 335, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_19.aseprite": {
+    "frame": { "x": 335, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_20.aseprite": {
+    "frame": { "x": 500, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_21.aseprite": {
+    "frame": { "x": 500, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_22.aseprite": {
+    "frame": { "x": 500, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_23.aseprite": {
+    "frame": { "x": 500, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_24.aseprite": {
+    "frame": { "x": 665, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_25.aseprite": {
+    "frame": { "x": 665, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_26.aseprite": {
+    "frame": { "x": 665, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_27.aseprite": {
+    "frame": { "x": 665, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_28.aseprite": {
+    "frame": { "x": 830, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_29.aseprite": {
+    "frame": { "x": 830, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_30.aseprite": {
+    "frame": { "x": 830, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_31.aseprite": {
+    "frame": { "x": 830, "y": 170, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_32.aseprite": {
+    "frame": { "x": 5, "y": 335, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_33.aseprite": {
+    "frame": { "x": 170, "y": 335, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_34.aseprite": {
+    "frame": { "x": 335, "y": 335, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_35.aseprite": {
+    "frame": { "x": 500, "y": 335, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_36.aseprite": {
+    "frame": { "x": 665, "y": 335, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_37.aseprite": {
+    "frame": { "x": 830, "y": 335, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_38.aseprite": {
+    "frame": { "x": 5, "y": 500, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_39.aseprite": {
+    "frame": { "x": 170, "y": 500, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_40.aseprite": {
+    "frame": { "x": 335, "y": 500, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_41.aseprite": {
+    "frame": { "x": 500, "y": 500, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_42.aseprite": {
+    "frame": { "x": 665, "y": 500, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_43.aseprite": {
+    "frame": { "x": 830, "y": 500, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_44.aseprite": {
+    "frame": { "x": 5, "y": 665, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_45.aseprite": {
+    "frame": { "x": 170, "y": 665, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_46.aseprite": {
+    "frame": { "x": 335, "y": 665, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_47.aseprite": {
+    "frame": { "x": 500, "y": 665, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_48.aseprite": {
+    "frame": { "x": 665, "y": 665, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_49.aseprite": {
+    "frame": { "x": 830, "y": 665, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_50.aseprite": {
+    "frame": { "x": 5, "y": 830, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_51.aseprite": {
+    "frame": { "x": 170, "y": 830, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_52.aseprite": {
+    "frame": { "x": 335, "y": 830, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_53.aseprite": {
+    "frame": { "x": 500, "y": 830, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_54.aseprite": {
+    "frame": { "x": 665, "y": 830, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_55.aseprite": {
+    "frame": { "x": 830, "y": 830, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_56.aseprite": {
+    "frame": { "x": 830, "y": 830, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_57.aseprite": {
+    "frame": { "x": 830, "y": 830, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   },
+   "tornado_58.aseprite": {
+    "frame": { "x": 830, "y": 830, "w": 160, "h": 160 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 160, "h": 160 },
+    "sourceSize": { "w": 160, "h": 160 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.5-x64",
+  "image": "tornado.png",
+  "format": "RGBA8888",
+  "size": { "w": 995, "h": 995 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "tornado1", "from": 0, "to": 7, "direction": "forward", "color": "#000000ff" },
+   { "name": "tornado2", "from": 8, "to": 23, "direction": "forward", "color": "#000000ff" },
+   { "name": "tornado3", "from": 24, "to": 31, "direction": "forward", "color": "#000000ff" },
+   { "name": "tornado4", "from": 32, "to": 40, "direction": "forward", "color": "#000000ff" },
+   { "name": "tornado5", "from": 41, "to": 58, "direction": "forward", "color": "#000000ff" }
+  ],
+  "layers": [
+   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

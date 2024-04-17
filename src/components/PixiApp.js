@@ -1,9 +1,9 @@
 import { Stage } from "@pixi/react";
-import { RoySprite } from "./RoySprite";
-import useTamagotchi from "../app/StateContext";
+// import { RoySprite } from "./RoySprite";
+// import useTamagotchi from "../app/StateContext";
 
-export const PixiApp = () => {
-    const { spriteState } = useTamagotchi();
+export const PixiApp = ({children}) => {
+    // const { spriteState } = useTamagotchi();
 
     const width = 200;
     const height = 240;
@@ -15,19 +15,20 @@ export const PixiApp = () => {
         }
     };
 
-    if (spriteState === "away") {
-        return (
-            <div id="game_container" className="sprite">
-                <Stage {...stageProps} />
-            </div>
-        )
-    } else {
+    // if (spriteState === "away") {
+    //     return (
+    //         <div id="game_container" className="sprite">
+    //             <Stage {...stageProps} />
+    //         </div>
+    //     )
+    // } else {
         return (
             <div id="game_container" className="sprite">
                 <Stage {...stageProps}>
-                    <RoySprite key={spriteState} state={spriteState}/>
+                    {/* <RoySprite key={spriteState} state={spriteState}/> */}
+                    {children}
                 </Stage>
             </div>
         )
-    }
+    // }
 }
