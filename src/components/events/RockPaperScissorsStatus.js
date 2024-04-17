@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import useEvent from "../../app/EventContext";
 import useTamagotchi from "../../app/StateContext";
 import { StatusLogWrapper } from "../StatusLogWrapper";
-import { useInterval } from "../../hooks/UseInterval";
+import { useInterval } from "../../hooks/useInterval";
 import "../../css/display.css"
 
 export const RockPaperScissorsStatus = () => {
