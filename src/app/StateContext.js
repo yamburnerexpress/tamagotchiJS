@@ -16,9 +16,7 @@ export const TamagotchiProvider = ({ children }) => {
         }
     }
 
-    const delay = ms => new Promise(res => setTimeout(res, ms));
-
-    const giveFood = async (food) => {
+    const giveFood = (food) => {
         const messages = [`${state.name} ate some ${food.name}!`]
 
         const status = () => {
@@ -49,10 +47,6 @@ export const TamagotchiProvider = ({ children }) => {
                 spriteState: "eat"
             }
         })
-
-        await delay(3000);
-
-        dispatch({type: "RESET_SPRITE_STATE"})
     }
 
     const giveMedicine = () => {
@@ -294,6 +288,33 @@ export const TamagotchiProvider = ({ children }) => {
         })
     }
 
+    const dreamInit = () => {
+        dispatch({
+            type: "SET_PREV_ACTION",
+            payload: {
+                action: "DREAM_INIT"
+            }
+        })
+
+        dispatch({
+            type: "SET_MESSAGES",
+            payload: {
+                messages: []
+            }
+        })
+
+        dispatch({
+            type: "SET_SPRITE_STATE",
+            payload: {
+                spriteState: "dreamintro"
+            }
+        })
+    }
+
+    const resetSpriteState = () => {
+        dispatch({type: "RESET_SPRITE_STATE"})
+    }
+
     const value = {
         name: state.name,
         age: state.age,
@@ -335,7 +356,9 @@ export const TamagotchiProvider = ({ children }) => {
         goPiss,
         setSpriteState,
         setMessages,
-        setPrevAction
+        setPrevAction,
+        dreamInit,
+        resetSpriteState
     }
 
     return ( 
