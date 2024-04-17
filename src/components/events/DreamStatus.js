@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import useEvent from "../../app/EventContext";
 import useTamagotchi from "../../app/StateContext";
+import { Typewriter } from "../Typewriter";
 import { StatusLogWrapper } from "../StatusLogWrapper";
-import { useInterval } from "../../hooks/UseInterval";
+import { useInterval } from "../../hooks/useInterval";
 import "../../css/display.css"
 
 export const DreamStatus = () => {
@@ -36,10 +37,7 @@ export const DreamStatus = () => {
 
     return (
         <StatusLogWrapper>
-            {/* {data.DREAM.messages.map((msg, index) => (
-                <li key={index + 1}>{msg}</li>
-            ))} */}
-            <li key={data.DREAM.messages[messageIndex]}>{data.DREAM.messages[messageIndex]}</li>
+            <Typewriter key={data.DREAM.messages[messageIndex]} text={data.DREAM.messages[messageIndex]}/>
         </StatusLogWrapper>
     )
 }
