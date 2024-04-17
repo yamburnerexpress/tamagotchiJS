@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import useEvent from "../../app/EventContext";
 import useTamagotchi from "../../app/StateContext";
+import { StatusLogWrapper } from "../StatusLogWrapper";
 import { useInterval } from "../../hooks/UseInterval";
 import "../../css/display.css"
 
-export const EventStatus = () => {
+export const RockPaperScissorsStatus = () => {
     const {name, setPlayedGame, setSpriteState} = useTamagotchi()
     const {data, resetEventData} = useEvent()
     const [message, setMessage] = useState(`${name} wants to play Rock, Paper, Scissors!`)
@@ -44,10 +45,8 @@ export const EventStatus = () => {
     }, 1000)
 
     return (
-        <div id='messages' className="messageContainer">
-            <ul className="statusLog">
-                <li key={message}>{message}</li>
-            </ul>
-        </div>
+        <StatusLogWrapper>
+            <li key={message}>{message}</li>
+        </StatusLogWrapper>
     )
 }

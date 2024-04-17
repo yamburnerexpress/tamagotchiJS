@@ -1,5 +1,6 @@
 import React from "react";
 import useTamagotchi from "../app/StateContext";
+import { StatusLogWrapper } from "./StatusLogWrapper";
 import * as constants from '../util/Constants';
 import "../css/display.css"
 
@@ -68,12 +69,10 @@ export const Status = () => {
     }
 
     return (
-      <div id='messages' className="messageContainer">
-          <ul className="statusLog">
-              {updatedMessages().map((msg, index) => (
-                  <li key={index + 1}>{msg}</li>
-              ))}
-          </ul>
-      </div>
+        <StatusLogWrapper>
+            {updatedMessages().map((msg, index) => (
+                <li key={index + 1}>{msg}</li>
+            ))}
+        </StatusLogWrapper>
     )
 }

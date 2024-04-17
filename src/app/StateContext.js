@@ -276,6 +276,24 @@ export const TamagotchiProvider = ({ children }) => {
         })
     }
 
+    const setMessages = (messages = []) => {
+        dispatch({
+            type: "SET_MESSAGES",
+            payload: {
+                messages: messages
+            }
+        })
+    }
+
+    const setPrevAction = (action) => {
+        dispatch({
+            type: "SET_PREV_ACTION",
+            payload: {
+                action: action
+            }
+        })
+    }
+
     const value = {
         name: state.name,
         age: state.age,
@@ -315,7 +333,9 @@ export const TamagotchiProvider = ({ children }) => {
         setPlayedGame,
         setHasToPiss,
         goPiss,
-        setSpriteState
+        setSpriteState,
+        setMessages,
+        setPrevAction
     }
 
     return ( 

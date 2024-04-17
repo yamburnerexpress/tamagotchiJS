@@ -1,0 +1,51 @@
+{
+    "tornado": [
+        {
+            "id": 1,
+            "frame": "tornado1",
+            "messages": [
+                "I am a tornado",
+                "I dance my powerful dance down the highway"
+            ]
+        },
+        {
+            "id": 2,
+            "frame": "tornado2",
+            "messages": [
+                "I crush power lines to splinters",
+                "Monuments to gravel"
+            ]
+        },
+        {
+            "id": 3,
+            "frame": "tornado3",
+            "messages": [
+                "With my powerful dance",
+                "To a soundtrack of sirens"
+            ]
+        },
+        {
+            "id": 4,
+            "frame": "tornado4",
+            "messages": [
+                "I will find you",
+                "I will lift you into the sky"
+            ]
+        },
+        {
+            "id": 5,
+            "frame": "tornado5",
+            "messages": [
+                "I will smash you deep into the earth's molten core",
+                "With one twitch of my hips"
+            ]
+        },
+        {
+            "id": 6,
+            "frame": "tornado1",
+            "messages": [
+                "With just a twitch of my hips"
+            ]
+        }
+    ]
+}

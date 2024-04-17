@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import useTamagotchi from "../app/StateContext.js";
+import useEvent from "../app/EventContext.js";
 import { ActionButton } from "./ActionButton.js";
 import { HoldButton } from "./HoldButton.js";
 import { FoodButton } from "./FoodButton.js";
@@ -10,8 +11,10 @@ import "../css/ActionButton.css"
 export const ActionButtonGroup = () => {
     const { 
         name, 
+        prevAction,
         isHere, 
         status, 
+        love,
         tiredness, 
         isAsleep,
         inventory, 
@@ -23,9 +26,13 @@ export const ActionButtonGroup = () => {
         giveMedicine,
         playWithToy,
         goPiss,
-        isPissing
+        isPissing,
+        setSpriteState,
+        setMessages
     } = useTamagotchi();
+    const {startDream} = useEvent();
     const [foodOpt, setFoodOpt] = useState(false);
+    const [disabled, setDisabled] = useState(false);
 
     if (!isHere) {
         let handleClick = () => {
@@ -38,9 +45,21 @@ export const ActionButtonGroup = () => {
             </div>
         )
     } else if (isAsleep) {
+        const handleClick = () => {
+            setDisabled(true)
+            setMessages()
+            setSpriteState('dreamintro')
+            setTimeout(() => {
+                startDream("tornado")
+            }, 3000)
+        }
+
+        const isDream = love >= constants.LOVE_THRESHOLD && prevAction.type !== 'DREAM';
+
         return (
             <div className='actions'>
-                <ActionButton action={() => wakeUp()} label={`Wake ${name} Up`}/>
+                {!disabled && <ActionButton key='wake' action={() => wakeUp()} label={`Wake ${name} Up`}/>}
+                {isDream && !disabled && <ActionButton key='startdream' action={() => handleClick()} label={`Watch ${name}'s Dreams`}/>}
             </div>
         )
     } else if (isPissing) {
