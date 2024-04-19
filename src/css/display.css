@@ -95,12 +95,22 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    /* max-height: 100px; */
+    max-height: 80px;
   }
 
   .statusLog {
+    max-width: 100%;
+    text-wrap: wrap;
     list-style-type: none;
     margin-bottom: 10px;
     padding: 0px;
-    font-size: .8rem;
+    font-size: 1rem;
+    font-family: "Belanosima", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  li {
+    max-width: 300;
+    align-self: center;
   }
