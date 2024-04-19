@@ -6,7 +6,7 @@ import { useInterval } from "../../hooks/useInterval";
 import "../../css/display.css"
 
 export const RockPaperScissorsStatus = () => {
-    const {name, setPlayedGame, setSpriteState} = useTamagotchi()
+    const {name, setPlayedGame, setMessages, setSpriteState} = useTamagotchi()
     const {data, resetEventData} = useEvent()
     const [message, setMessage] = useState(`${name} wants to play Rock, Paper, Scissors!`)
     const [messageIndex, setMessageIndex] = useState(0)
@@ -39,6 +39,7 @@ export const RockPaperScissorsStatus = () => {
             if (messageIndex >= messages.length + 2) {
                 setPlayedGame()
                 resetEventData()
+                setMessages()
                 setSpriteState('base')
             }
         }
