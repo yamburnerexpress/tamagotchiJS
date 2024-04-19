@@ -138,14 +138,12 @@ export const TamagotchiProvider = ({ children }) => {
         const [isHurt, hpMessage] = getHpMessage();
         const [isTired, tiredMessage] = getTiredMessage();
         const [isLove, loveMessage] = getLoveMessage();
-        const isAnnoyed = getIsAnnoyed();
 
         const newMessages = [
             `${state.name} is feeling ${state.status.name}!`,
             ...(isHurt ? [hpMessage] : []),
             ...(isTired ? [tiredMessage] : []),
-            ...(isLove ? [loveMessage] : []),
-            ...(isAnnoyed ? [`${state.name} is annoyed!`] : [])
+            ...(isLove ? [loveMessage] : [])
         ]
 
         dispatch({

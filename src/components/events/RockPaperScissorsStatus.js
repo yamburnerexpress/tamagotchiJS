@@ -46,6 +46,7 @@ export const RockPaperScissorsStatus = () => {
 
     return (
         <StatusLogWrapper>
+            {data.ROCK_PAPER_SCISSORS.playerSelect && <li key={data.ROCK_PAPER_SCISSORS.playerSelect}>You chose {data.ROCK_PAPER_SCISSORS.playerSelect}!</li>}
             <li key={message}>{message}</li>
         </StatusLogWrapper>
     )

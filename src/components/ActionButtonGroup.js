@@ -27,6 +27,7 @@ export const ActionButtonGroup = () => {
         playWithToy,
         goPiss,
         isPissing,
+        spriteState,
         dreamInit
     } = useTamagotchi();
     const {startDream} = useEvent();
@@ -43,7 +44,7 @@ export const ActionButtonGroup = () => {
                 <ActionButton action={() => handleClick()} label='Jingle Keys' />
             </div>
         )
-    } else if (isAsleep) {
+    } else if (isAsleep && spriteState !== 'dreamoutro') {
         const handleClick = () => {
             setDisabled(true)
             dreamInit()
@@ -76,6 +77,8 @@ export const ActionButtonGroup = () => {
                 {foodButtons}
             </div>
         )
+    } else if (spriteState === 'dreamoutro') {
+        return <div className='actions' />
     } else {
         const toyButtons = inventory.map(toy => (<ActionButton key={toy.name} action={() => playWithToy(toy.name)} label={`${toy.action} ${toy.name}`} />))
 
