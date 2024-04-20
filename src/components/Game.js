@@ -41,7 +41,7 @@ export const Game = () => {
                 break;
             }
             case "DREAM": {
-                statusLog = <DreamStatus name="tornado"/>
+                statusLog = <DreamStatus name={data.DREAM.name}/>
             }
         }
     }
@@ -57,7 +57,7 @@ export const Game = () => {
                     <Battery />
                     <PixiApp>
                         {spriteState !== "away" && (!isEvent || name === "ROCK_PAPER_SCISSORS") && <RoySprite key={spriteState} state={spriteState} dream={isDream}/>}
-                        {isEvent && name === "DREAM" && <DreamSprite key={data.DREAM.sprite} state={data.DREAM.sprite} />}
+                        {isEvent && name === "DREAM" && <DreamSprite key={data.DREAM.sprite} dream={data.DREAM.name} state={data.DREAM.sprite} />}
                     </PixiApp>
                     {!isEvent && spriteState !== "dreamintro" && <PissProgress />}
                 </div>

@@ -30,7 +30,7 @@ export const ActionButtonGroup = () => {
         spriteState,
         dreamInit
     } = useTamagotchi();
-    const {startDream} = useEvent();
+    const {selectDream, startDream} = useEvent();
     const [foodOpt, setFoodOpt] = useState(false);
     const [disabled, setDisabled] = useState(false);
 
@@ -46,10 +46,11 @@ export const ActionButtonGroup = () => {
         )
     } else if (isAsleep && spriteState !== 'dreamoutro') {
         const handleClick = () => {
+            const dream = selectDream();
             setDisabled(true)
             dreamInit()
             setTimeout(() => {
-                startDream("tornado")
+                startDream(dream)
             }, 3000)
         }
 

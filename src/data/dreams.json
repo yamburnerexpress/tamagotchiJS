@@ -47,5 +47,55 @@
                 "With just a twitch of my hips"
             ]
         }
+    ],
+    "hayate": [
+        {
+            "id": 1,
+            "frame": "hayate1",
+            "messages": [
+                "What do you want?",
+                "Do you need to go outside?"
+            ]
+        },
+        {
+            "id": 2,
+            "frame": "hayate2",
+            "messages": [
+                "Let's go buddy",
+                "Good boy"
+            ]
+        },
+        {
+            "id": 3,
+            "frame": "hayate3",
+            "messages": [
+                "Fascinating",
+                "What's going on in there"
+            ]
+        },
+        {
+            "id": 4,
+            "frame": "hayate4",
+            "messages": [
+                "Eat your hip supplement buddy",
+                "EAT YOUR SUPPLEMENT"
+            ]
+        },
+        {
+            "id": 5,
+            "frame": "hayate5",
+            "messages": [
+                "You must be tired pal",
+                "Get some rest"
+            ]
+        },
+        {
+            "id": 6,
+            "frame": "hayate6",
+            "messages": [
+                "Good boy",
+                ""
+            ]
+        }
     ]
 }
