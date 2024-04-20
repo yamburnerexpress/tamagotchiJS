@@ -4,6 +4,7 @@ import dreams from '../data/dreams.json'
 const initialState = {
     isEvent: false,
     name: null,
+    prevDream: null,
     data: {
         ROCK_PAPER_SCISSORS: {
             hasPlayed: false,
@@ -50,7 +51,8 @@ const EventReducer = (state, action) => {
         }
         case "RESET_EVENT_DATA": {
             return {
-                ...initialState
+                ...initialState,
+                prevDream: state.prevDream
             }
         }
         case "SET_DREAM": {
@@ -58,6 +60,7 @@ const EventReducer = (state, action) => {
                 ...state,
                 isEvent: true,
                 name: "DREAM",
+                prevDream: payload.DREAM.name,
                 data: {
                     ...state.data,
                     DREAM: {
@@ -142,6 +145,15 @@ export const EventProvider = ({ children }) => {
         }
     }
 
+    const selectDream = () => {
+        const keys = Object.keys(dreams);
+        if (state.prevDream) {
+            const index = keys.indexOf(state.prevDream)
+            keys.splice(index, 1)
+        }
+        return keys[ keys.length * Math.random() << 0];
+    }
+
     const startDream = (name) => {
         const dreamFrame = getDreamFrameById(name, 1)
         
@@ -188,6 +200,7 @@ export const EventProvider = ({ children }) => {
         removeEvent,
         setRockPaperScissors,
         playRPSTurn,
+        selectDream,
         startDream,
         nextDreamFrame,
         resetEventData

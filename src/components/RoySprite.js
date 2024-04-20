@@ -17,7 +17,7 @@ export const RoySprite = (props) => {
 
     const loadSpritesheet = () => {
         let data = spritesheet.data.meta.frameTags.find(frame => frame.name === props.state)
-        const textureArray = Object.keys(spritesheet.textures).slice(data.from, data.to).map((k) => spritesheet.textures[k])
+        const textureArray = Object.keys(spritesheet.textures).slice(data.from, data.to + 1).map((k) => spritesheet.textures[k])
         if (data.direction === 'reverse') {
             setTextures(textureArray.reverse())
         } else {
