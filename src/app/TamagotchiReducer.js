@@ -15,7 +15,7 @@ export const initialState = {
     spriteState: 'base',
     tiredness: 0,
     anger: 0,
-    love: 0,
+    love: 100,
     status: getStatusById(1),
     isMedicine: false,
     isAsleep: false,
