@@ -10,6 +10,7 @@ import { StatusIconGroup } from './StatusIconGroup.js'
 import { Status } from './Status.js'
 import { RockPaperScissorsStatus } from './events/RockPaperScissorsStatus.js'
 import { DreamStatus } from './events/DreamStatus.js';
+import { TicTacToe } from './events/TicTacToe.js';
 import { PissProgress } from './PissProgress.js'
 import { EventCounter } from './EventCounter.js';
 import useTamagotchi from '../app/StateContext.js';
@@ -18,13 +19,17 @@ import * as constants from '../util/Constants.js'
 
 export const Game = () => {
     const { age, status, love, setSpriteState, isPissing, spriteState, prevAction } = useTamagotchi();
-    const {setRockPaperScissors, removeEvent, isEvent, name, data} = useEvent();
+    const {setRockPaperScissors, setTicTacToe, removeEvent, isEvent, name, data} = useEvent();
 
     useEffect(() => {
         if (age !== 0 && age % 10 === 0) {
             if (!status.isSick && !isPissing) {
-                setSpriteState('base')
-                setRockPaperScissors();
+                if (Math.random() < 0.5) {
+                    setSpriteState('base')
+                    setRockPaperScissors();
+                } else {
+                    setTicTacToe()
+                }
             }
         } else {
             removeEvent()
@@ -48,26 +53,30 @@ export const Game = () => {
 
     const isDream = love >= constants.LOVE_THRESHOLD && prevAction.type !== "DREAM";
     
-    return (
-        <>
-            {!isEvent && <EventCounter />}
-            <SpriteContainer>
-                {!isEvent && spriteState !== "dreamintro" && <StatusIconGroup />}
-                <div className="spriteContainer">
-                    <Battery />
-                    <PixiApp>
-                        {spriteState !== "away" && (!isEvent || name === "ROCK_PAPER_SCISSORS") && <RoySprite key={spriteState} state={spriteState} dream={isDream}/>}
-                        {isEvent && name === "DREAM" && <DreamSprite key={data.DREAM.sprite} dream={data.DREAM.name} state={data.DREAM.sprite} />}
-                    </PixiApp>
-                    {!isEvent && spriteState !== "dreamintro" && <PissProgress />}
+    if (isEvent && name === "TIC_TAC_TOE") {
+        return <TicTacToe />
+    } else {
+        return (
+            <React.Fragment>
+                {!isEvent && <EventCounter />}
+                <SpriteContainer>
+                    {!isEvent && spriteState !== "dreamintro" && <StatusIconGroup />}
+                    <div className="spriteContainer">
+                        <Battery />
+                        <PixiApp>
+                            {spriteState !== "away" && (!isEvent || name === "ROCK_PAPER_SCISSORS") && <RoySprite key={spriteState} state={spriteState} dream={isDream}/>}
+                            {isEvent && name === "DREAM" && <DreamSprite key={data.DREAM.sprite} dream={data.DREAM.name} state={data.DREAM.sprite} />}
+                        </PixiApp>
+                        {!isEvent && spriteState !== "dreamintro" && <PissProgress />}
+                    </div>
+                    {statusLog}
+                </SpriteContainer>
+                <div className="bottomPanel">
+                    {isEvent ? <EventActionButtonGroup event={name} /> : <ActionButtonGroup />}
                 </div>
-                {statusLog}
-            </SpriteContainer>
-            <div className="bottomPanel">
-                {isEvent ? <EventActionButtonGroup event={name} /> : <ActionButtonGroup />}
-            </div>
-        </>
-    );
+            </React.Fragment>
+        )
+    };
 
     
 }
