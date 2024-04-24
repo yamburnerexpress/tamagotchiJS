@@ -1,14 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ActionButtonGroup } from './ActionButtonGroup.js';
-import { EventActionButtonGroup } from './events/EventActionButtonGroup.js';
 import { SpriteContainer } from './SpriteContainer.js';
 import { PixiApp } from './PixiApp.js'
 import { RoySprite } from './RoySprite.js'
-import { DreamSprite } from './DreamSprite.js';
 import { Battery } from './Battery.js'
 import { StatusIconGroup } from './StatusIconGroup.js'
 import { Status } from './Status.js'
-import { DreamStatus } from './events/DreamStatus.js';
+import { Dream } from './events/Dream.js';
 import { RockPaperScissors } from './events/RockPaperScissors.js';
 import { TicTacToe } from './events/TicTacToe.js';
 import { PissProgress } from './PissProgress.js'
@@ -19,7 +17,8 @@ import * as constants from '../util/Constants.js'
 
 export const Game = () => {
   const { age, status, love, setSpriteState, isPissing, spriteState, prevAction } = useTamagotchi();
-  const {setRockPaperScissors, setTicTacToe, removeEvent, isEvent, name, data} = useEvent();
+  const {setRockPaperScissors, setTicTacToe, removeEvent, isEvent, name} = useEvent();
+  const [isDream, setIsDream] = useState(false)
 
   useEffect(() => {
     if (age !== 0 && age % 10 === 0) {
@@ -37,40 +36,35 @@ export const Game = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [age])
 
-  let statusLog = <Status />;
-  if (isEvent) {
-    // eslint-disable-next-line
-    switch (name) {
-      case "DREAM": {
-        statusLog = <DreamStatus name={data.DREAM.name}/>
-      }
+  useEffect(() => {
+    if (love >= constants.LOVE_THRESHOLD && prevAction.type !== "DREAM") {
+      setIsDream(true)
     }
-  }
-
-  const isDream = love >= constants.LOVE_THRESHOLD && prevAction.type !== "DREAM";
+  }, [love, prevAction, setIsDream])
   
   if (isEvent && name === "TIC_TAC_TOE") {
-      return <TicTacToe />
+    return <TicTacToe />
   } else if (isEvent && name === "ROCK_PAPER_SCISSORS") {
-      return <RockPaperScissors />
+    return <RockPaperScissors />
+  } else if (isEvent && name === "DREAM") {
+    return <Dream />
   } else {
     return (
       <React.Fragment>
-        {!isEvent && <EventCounter />}
+        <EventCounter />
         <SpriteContainer>
-          {!isEvent && spriteState !== "dreamintro" && <StatusIconGroup />}
+          {spriteState !== "dreamintro" && <StatusIconGroup />}
           <div className="spriteContainer">
             <Battery />
             <PixiApp>
               {spriteState !== "away" && <RoySprite key={spriteState} state={spriteState} dream={isDream}/>}
-              {isEvent && name === "DREAM" && <DreamSprite key={data.DREAM.sprite} dream={data.DREAM.name} state={data.DREAM.sprite} />}
             </PixiApp>
-            {!isEvent && spriteState !== "dreamintro" && <PissProgress />}
+            {spriteState !== "dreamintro" && <PissProgress />}
           </div>
-          {statusLog}
+          <Status />
         </SpriteContainer>
         <div className="bottomPanel">
-          {isEvent ? <EventActionButtonGroup event={name} /> : <ActionButtonGroup />}
+          <ActionButtonGroup />
         </div>
       </React.Fragment>
     )
