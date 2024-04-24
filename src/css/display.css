@@ -126,8 +126,13 @@
     width: 100%;
     color: black;
     background: transparent;
-    font-weight: 800;
-    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cellIcon {
+    height: 80%;
   }
   
   /* remove border for edges */

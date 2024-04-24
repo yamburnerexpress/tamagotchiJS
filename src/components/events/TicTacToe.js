@@ -18,7 +18,9 @@ const winningComboPoints = [
 ]
 
 const Cell = ({value, onClick}) => {
-  const content = (value===1 && "X") || (value===2 && "O") || "";
+  const x = <svg aria-label="X" className="cellIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M20 20L4 4m16 0L4 20"/></svg>
+  const o = <svg aria-label="O" className="cellIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/></svg>
+  const content = (value===1 && x) || (value===2 && o) || "";
 
   return (
     <button className="cell" onClick={onClick} disabled={value > 0}>
