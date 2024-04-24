@@ -60,7 +60,9 @@ export const RockPaperScissors = () => {
 
   const handleClick = (selection) => {
     setDisabled(true);
-    event.playRPSTurn(selection);
+    if (!disabled) {
+      event.playRPSTurn(selection);
+    }
   }
 
   useEffect(() => {

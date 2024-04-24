@@ -85,12 +85,16 @@ export const TamagotchiProvider = ({ children }) => {
     }
 
     const doSleep = () => {
+        const messages = [`${state.name} fell asleep!`]
+        if (state.love >= constants.LOVE_THRESHOLD && state.prevAction.type !== "DREAM") {
+            messages.push(`Do you want to go into ${state.name}'s dreams?`)
+        }
         dispatch({
             type: "DO_SLEEP",
             payload: {
                 tiredness: 0,
                 tolerance: 0,
-                messages: [`${state.name} fell asleep!`]
+                messages: messages
             }
         })
 

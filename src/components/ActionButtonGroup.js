@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import useTamagotchi from "../app/StateContext.js";
 import useEvent from "../app/EventContext.js";
 import { ActionButton } from "./ActionButton.js";
@@ -33,6 +33,13 @@ export const ActionButtonGroup = () => {
   const {selectDream, startDream} = useEvent();
   const [foodOpt, setFoodOpt] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  const [isDream, setIsDream] = useState(false)
+
+  useEffect(() => {
+    if (love >= constants.LOVE_THRESHOLD && prevAction.type !== "DREAM") {
+      setIsDream(true)
+    }
+  }, [love, prevAction, setIsDream])
 
   if (!isHere) {
     let handleClick = () => {
@@ -53,8 +60,6 @@ export const ActionButtonGroup = () => {
         startDream(dream)
       }, 3000)
     }
-
-    const isDream = love >= constants.LOVE_THRESHOLD && prevAction.type !== 'DREAM';
 
     return (
       <div className='actions'>
