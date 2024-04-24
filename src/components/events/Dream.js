@@ -7,7 +7,7 @@ import { DreamSprite } from "../DreamSprite";
 import { Battery } from "../Battery";
 import { Typewriter } from "../Typewriter";
 import { StatusLogWrapper } from "../StatusLogWrapper";
-import { EventActionButtonGroup } from "./EventActionButtonGroup";
+import { ActionButton } from "../ActionButton";
 import { useInterval } from "../../hooks/useInterval";
 import "../../css/display.css"
 
@@ -40,6 +40,13 @@ export const Dream = () => {
     getNextMessage()
   }, 3000)
 
+  const handleClick = () => {
+    setSpriteState('sleep')
+    setPrevAction('DREAM')
+    setMessages()
+    event.resetEventData()
+  }
+
   return (
     <React.Fragment>
         <SpriteContainer>
@@ -54,7 +61,9 @@ export const Dream = () => {
           </StatusLogWrapper>
         </SpriteContainer>
         <div className="bottomPanel">
-          <EventActionButtonGroup event={event.name} />
+          <div className='actions'>
+            <ActionButton key='SKIP' action={() => handleClick()} label='Skip' />
+          </div>
         </div>
       </React.Fragment>
   )

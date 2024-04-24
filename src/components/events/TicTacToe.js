@@ -6,8 +6,6 @@ import { StatusLogWrapper } from "../StatusLogWrapper.js";
 import { Battery } from "../Battery.js";
 import "../../css/display.css"
 
-const initialState = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-
 const winningComboPoints = [
   [[0, 0], [0, 1], [0, 2]],
   [[1, 0], [1, 1], [1, 2]],
@@ -30,6 +28,7 @@ const Cell = ({value, onClick}) => {
 }
 
 export const TicTacToe = () => {
+  const initialState = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
   const {name, setPlayedGame, setMessages, setSpriteState} = useTamagotchi();
   const {resetEventData} = useEvent();
   const [board, setBoard] = useState(initialState);
@@ -118,6 +117,7 @@ export const TicTacToe = () => {
     }
   }
 
+  // // allows computer to go first
   // useEffect(() => {
   //   let newBoard = [...board]
   //   let remainingCells = getPointsWithValue(0);
@@ -171,7 +171,7 @@ export const TicTacToe = () => {
   }, [winState, setPlayedGame, resetEventData, setMessages, setSpriteState])
 
   return (
-    <>
+    <React.Fragment>
       <SpriteContainer>
         <div className="spriteContainer">
           <Battery />
@@ -200,6 +200,6 @@ export const TicTacToe = () => {
         </StatusLogWrapper>
       </SpriteContainer>
       <div className="bottomPanel" />
-    </>
+    </React.Fragment>
   );
 }

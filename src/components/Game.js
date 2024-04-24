@@ -41,13 +41,15 @@ export const Game = () => {
       setIsDream(true)
     }
   }, [love, prevAction, setIsDream])
-  
-  if (isEvent && name === "TIC_TAC_TOE") {
-    return <TicTacToe />
-  } else if (isEvent && name === "ROCK_PAPER_SCISSORS") {
-    return <RockPaperScissors />
-  } else if (isEvent && name === "DREAM") {
-    return <Dream />
+
+  if (isEvent) {
+    return (
+      <React.Fragment>
+        {name === "TIC_TAC_TOE" && <TicTacToe />}
+        {name === "ROCK_PAPER_SCISSORS" && <RockPaperScissors />}
+        {name === "DREAM" && <Dream />}
+      </React.Fragment>
+    )
   } else {
     return (
       <React.Fragment>
@@ -68,7 +70,5 @@ export const Game = () => {
         </div>
       </React.Fragment>
     )
-  };
-
-  
+  }
 }
