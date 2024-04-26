@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import { SpriteContainer } from "../SpriteContainer";
 import { Battery } from "../Battery";
 import { PixiApp } from "../PixiApp";
-import { CoolRoySprite } from "../CoolRoySprite";
 import { RoySprite } from "../RoySprite";
 import { StatusLogWrapper } from "../StatusLogWrapper";
 import { ActionButton } from "../ActionButton";
@@ -12,7 +11,7 @@ import { useInterval } from "../../hooks/useInterval";
 import "../../css/display.css"
 
 export const RockPaperScissors = () => {
-  const {name, spriteState, setPlayedGame, setMessages, setSpriteState, isCool} = useTamagotchi();
+  const {name, spriteState, setPlayedGame, setMessages, setSpriteState} = useTamagotchi();
   const event = useEvent();
   const [message, setMessage] = useState(`${name} wants to play Rock, Paper, Scissors!`);
   const [messageIndex, setMessageIndex] = useState(0);
@@ -79,7 +78,7 @@ export const RockPaperScissors = () => {
         <div className="spriteContainer">
           <Battery />
           <PixiApp>
-            {isCool ? <CoolRoySprite key={spriteState} state={spriteState} dream={false}/> : <RoySprite key={spriteState} state={spriteState} dream={false}/>}
+            <RoySprite key={spriteState} state={spriteState} dream={false}/>
           </PixiApp>
         </div>
         <StatusLogWrapper>

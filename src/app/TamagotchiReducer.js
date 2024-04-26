@@ -4,7 +4,6 @@ import * as constants from '../util/Constants';
 export const initialState = {
     name: "Roy",
     age: 0,
-    isCool: false,
     tick: 0,
     isBored: false,
     isHere: true,
@@ -265,12 +264,6 @@ const TamagotchiReducer = (state, action) => {
             return {
                 ...state,
                 spriteState: payload.spriteState
-            }
-        }
-        case 'TOGGLE_COOL_MODE': {
-            return {
-                ...state,
-                isCool: !state.isCool
             }
         }
         case 'RESET_SPRITE_STATE': {
