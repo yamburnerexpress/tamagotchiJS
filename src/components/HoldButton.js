@@ -24,7 +24,7 @@ export const HoldButton = (props) => {
 
     return (
         <button 
-            className='actionButton' 
+            className='actionButton roundButton' 
             onMouseDown={startCounter}
             onMouseUp={stopCounter}
             onMouseLeave={stopCounter}
