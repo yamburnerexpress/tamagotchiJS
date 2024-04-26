@@ -9,6 +9,7 @@ import { Status } from './Status.js'
 import { Dream } from './events/Dream.js';
 import { RockPaperScissors } from './events/RockPaperScissors.js';
 import { TicTacToe } from './events/TicTacToe.js';
+import { Simon } from './events/Simon.js';
 import { PissProgress } from './PissProgress.js'
 import { EventCounter } from './EventCounter.js';
 import useTamagotchi from '../app/StateContext.js';
@@ -17,17 +18,20 @@ import * as constants from '../util/Constants.js'
 
 export const Game = () => {
   const { age, status, love, setSpriteState, isPissing, spriteState, prevAction } = useTamagotchi();
-  const {setRockPaperScissors, setTicTacToe, removeEvent, isEvent, name} = useEvent();
+  const {setRockPaperScissors, setTicTacToe, setSimon, removeEvent, isEvent, name} = useEvent();
   const [isDream, setIsDream] = useState(false)
 
   useEffect(() => {
     if (age !== 0 && age % 10 === 0) {
       if (!status.isSick && !isPissing) {
-        if (Math.random() < 0.5) {
+        const chance = Math.random()
+        if (chance < 0.33) {
           setSpriteState('base')
           setRockPaperScissors();
-        } else {
+        } else if ((0.33 <= chance) && (chance < 0.66) ) {
           setTicTacToe()
+        } else {
+          setSimon()
         }
       }
     } else {
@@ -35,6 +39,21 @@ export const Game = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [age])
+
+  // useEffect(() => {
+  //   if (age !== 0 && age === 1) {
+  //     if (!status.isSick && !isPissing) {
+  //       if (Math.random() < 0.5) {
+  //         setSimon()
+  //       } else {
+  //         setSimon()
+  //       }
+  //     }
+  //   } else {
+  //     removeEvent()
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [age])
 
   useEffect(() => {
     if (love >= constants.LOVE_THRESHOLD && prevAction.type !== "DREAM") {
@@ -48,6 +67,7 @@ export const Game = () => {
         {name === "TIC_TAC_TOE" && <TicTacToe />}
         {name === "ROCK_PAPER_SCISSORS" && <RockPaperScissors />}
         {name === "DREAM" && <Dream />}
+        {name === "SIMON" && <Simon />}
       </React.Fragment>
     )
   } else {

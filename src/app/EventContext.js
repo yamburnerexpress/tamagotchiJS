@@ -13,6 +13,7 @@ const initialState = {
             winState: null
         },
         TIC_TAC_TOE: {},
+        SIMON: {},
         DREAM: {
             name: null,
             hasPlayed: false,
@@ -99,6 +100,15 @@ export const EventProvider = ({ children }) => {
             type: "SET_EVENT",
             payload: {
                 name: "TIC_TAC_TOE"
+            }
+        })
+    }
+
+    const setSimon = () => {
+        dispatch({
+            type: "SET_EVENT",
+            payload: {
+                name: "SIMON"
             }
         })
     }
@@ -210,6 +220,7 @@ export const EventProvider = ({ children }) => {
         removeEvent,
         setRockPaperScissors,
         setTicTacToe,
+        setSimon,
         playRPSTurn,
         selectDream,
         startDream,
