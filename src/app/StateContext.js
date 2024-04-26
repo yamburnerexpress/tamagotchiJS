@@ -317,9 +317,14 @@ export const TamagotchiProvider = ({ children }) => {
         dispatch({type: "RESET_SPRITE_STATE"})
     }
 
+    const toggleCoolMode = () => {
+        dispatch({type: "TOGGLE_COOL_MODE"})
+    }
+
     const value = {
         name: state.name,
         age: state.age,
+        isCool: state.isCool,
         tick: state.tick,
         event: state.event,
         isBored: state.isBored,
@@ -360,7 +365,8 @@ export const TamagotchiProvider = ({ children }) => {
         setMessages,
         setPrevAction,
         dreamInit,
-        resetSpriteState
+        resetSpriteState,
+        toggleCoolMode
     }
 
     return ( 
